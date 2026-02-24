@@ -1,43 +1,25 @@
-Política de Privacidad de Caatffee
-1. Datos que recopilamos:
-Caatffee recopila IDs de usuario y de servidor únicamente para el funcionamiento del sistema Premium y de Boosts. No guardamos nombres reales ni información personal.
+# Política de Privacidad de Caatffee
 
-2. Uso de la información:
-Los datos se usan para verificar si un usuario ha bosteado el servidor de soporte o si tiene una suscripción activa. No compartimos estos datos con nadie.
+**Última actualización: 24 de febrero de 2026**
 
-3. Eliminación de datos:
-Si quieres que tus datos sean borrados, simplemente deja de usar el bot o sal del servidor de soporte. También puedes contactarnos en: https://discord.gg/ff32C7rFbh
+En **Caatffee**, la privacidad de nuestros usuarios es una prioridad. Este documento detalla qué datos recopilamos y cómo los gestionamos.
 
-Dale al botón verde "Commit changes..." arriba a la derecha.
+### 1. Información que recopilamos
+Nuestro bot recopila exclusivamente datos técnicos necesarios para su funcionamiento:
+* **Identificadores de Discord (IDs):** Guardamos los IDs de usuario y de servidor para gestionar permisos, configuraciones personalizadas y el estado de la suscripción Premium.
+* **Datos de Servidores:** Almacenamos configuraciones específicas (canales de registro, roles asignados) para el correcto desempeño de las herramientas de gestión.
 
-Paso 2: Crear los Términos de Servicio
-Una vez guardado el anterior, dale otra vez al botón "Add file" -> "Create new file" y haz esto:
+### 2. Uso de la Información
+Los datos recopilados se utilizan únicamente para:
+* Verificar el estado de **Server Booster** en nuestro servidor oficial.
+* Mantener la base de datos de usuarios Premium activos.
+* Proporcionar soporte técnico y mejorar la experiencia del usuario.
 
-Nombre del archivo: Escribe terminos.md
+### 3. Almacenamiento y Seguridad
+* No vendemos ni compartimos ninguna información con terceros.
+* Los datos se almacenan en bases de datos protegidas y solo el equipo de desarrollo tiene acceso a ellos.
 
-Contenido: Copia y pega esto:
+### 4. Derechos del Usuario
+Cualquier usuario puede solicitar la eliminación total de sus datos enviando un ticket en nuestro servidor de soporte o expulsando al bot de su servidor.
 
-Términos de Servicio de Caatffee
-1. Uso del Bot:
-Al usar Caatffee, aceptas no usar el bot para spam o actividades que rompan las reglas de Discord.
-
-2. Suscripciones y Boosts:
-El acceso Premium se otorga por apoyar al bot vía Patreon, Nequi o con 2 Boosts en el servidor oficial. Estos apoyos no son reembolsables.
-
-3. Responsabilidad:
-No nos hacemos responsables por el mal uso que los administradores de servidores den a las funciones del bot.
-
-Dale otra vez al botón verde "Commit changes...".
-
-Paso 3: ¿Cómo sacar el link para Discord? (¡Importante!)
-Para que el aviso amarillo de Discord se quite, no sirve el link normal. Haz esto para cada archivo:
-
-Abre el archivo (ejemplo privacidad.md) en GitHub.
-
-Busca un botón que dice "Raw" (está arriba a la derecha del texto) y tócalo.
-
-La pantalla se pondrá blanca con el texto solo. Copia ese link de arriba.
-
-Pégalo en el Discord Developer Portal donde te pide la URL.
-
-¿Quieres que te espere a que pegues los links en Discord para decirte cómo verificar que todo quedó en verde?
+**Contacto:** [https://discord.gg/ff32C7rFbh]
