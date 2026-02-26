@@ -5,107 +5,320 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caatffee ☕</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
 --accent:#ffb6c1;
 --accent-strong:#ff8fab;
---glass:rgba(40,30,30,0.75);
+--bg-dark:#0f0c0c;
+--glass:rgba(30,20,20,0.7);
 --text:#ffffff;
---muted:#e8e4e4;
+--muted:#d6d2d2;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-background:url('https://i.postimg.cc/63VC2jmY/Fondo_Plantilla.png') no-repeat center center fixed;
-background-size:cover;
 color:var(--text);
+background:linear-gradient(-45deg,#140f0f,#1b1414,#241919,#140f0f);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
+overflow-x:hidden;
 }
-.overlay{background:rgba(0,0,0,0.65);min-height:100vh}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
 header{
-position:sticky;top:0;z-index:1000;
-display:flex;justify-content:space-between;align-items:center;
-padding:18px 40px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,0.1);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 50px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(25px);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
-header img{height:50px;border-radius:50%;box-shadow:0 0 15px var(--accent)}
-nav a{margin:0 15px;text-decoration:none;color:var(--text);font-weight:500;position:relative}
-nav a::after{content:"";position:absolute;width:0;height:2px;background:var(--accent);left:0;bottom:-5px;transition:.3s}
-nav a:hover::after{width:100%}
-.hero{text-align:center;padding:120px 20px 80px}
-.hero img.banner{width:100%;max-width:950px;border-radius:30px;box-shadow:0 25px 70px rgba(0,0,0,0.6);margin-bottom:40px}
-.hero h1{font-size:48px;font-weight:800;color:var(--accent);margin-bottom:25px}
-.hero p{max-width:800px;margin:auto;font-size:19px;line-height:1.8;color:var(--muted)}
-.buttons{margin-top:40px}
+
+header img{
+height:50px;
+border-radius:50%;
+box-shadow:0 0 20px var(--accent);
+}
+
+nav a{
+margin:0 18px;
+color:var(--text);
+text-decoration:none;
+font-weight:500;
+cursor:pointer;
+position:relative;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--accent);
+}
+
+section{
+display:none;
+padding:140px 30px 100px 30px;
+max-width:1300px;
+margin:auto;
+animation:fade 0.5s ease;
+}
+
+section.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.hero{
+text-align:center;
+}
+
+/* Banner */
+
+.hero img{
+width:100%;
+max-width:950px;
+border-radius:25px;
+margin-bottom:40px;
+border:4px solid var(--accent);
+box-shadow:
+0 30px 80px rgba(0,0,0,0.8),
+0 0 25px var(--accent);
+transition:0.3s ease;
+}
+
+.hero img:hover{
+box-shadow:
+0 30px 80px rgba(0,0,0,0.8),
+0 0 40px var(--accent-strong);
+}
+
+/* Badge arriba del título */
+
+.badge{
+display:inline-block;
+padding:8px 18px;
+margin-bottom:20px;
+border-radius:50px;
+font-size:14px;
+font-weight:600;
+color:#ffd6e7;
+background:rgba(255,182,193,0.1);
+border:1px solid rgba(255,182,193,0.4);
+backdrop-filter:blur(10px);
+box-shadow:0 0 15px rgba(255,182,193,0.2);
+transition:0.3s ease;
+}
+
+.badge:hover{
+box-shadow:0 0 25px rgba(255,182,193,0.5);
+transform:scale(1.05);
+}
+
+/* Título */
+
+.hero h1{
+font-size:52px;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.logo span{
+transition:all 0.3s ease;
+}
+
+.caat{
+color:#f6eed9;
+}
+
+.ffee{
+color:#7B3F00;
+}
+
+.logo:hover .caat{
+text-shadow:0 0 10px #ffffff, 0 0 20px #f6eed9;
+}
+
+.logo:hover .ffee{
+text-shadow:0 0 10px #ffdfc2, 0 0 25px #ffb38a;
+}
+
+/* Texto */
+
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:18px;
+color:var(--muted);
+line-height:1.8;
+}
+
+.buttons{
+margin-top:40px;
+}
+
 .btn{
-display:inline-block;padding:15px 32px;border-radius:50px;
+display:inline-block;
+padding:15px 35px;
+margin:10px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
 background:linear-gradient(45deg,var(--accent),var(--accent-strong));
-color:#000;text-decoration:none;font-weight:700;margin:12px;
-transition:.3s;box-shadow:0 10px 30px rgba(255,182,193,0.4)
+color:#000;
+box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
-.btn:hover{transform:translateY(-4px) scale(1.05)}
-section{padding:100px 20px;max-width:1300px;margin:auto}
-.section-title{text-align:center;font-size:36px;font-weight:800;margin-bottom:70px;color:var(--accent)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 35px rgba(255,182,193,0.8);
+}
+
+.section-title{
+text-align:center;
+font-size:36px;
+margin-bottom:60px;
+color:var(--accent);
+font-weight:800;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
 .card{
 background:var(--glass);
-padding:35px;border-radius:30px;
-backdrop-filter:blur(20px);
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
-transition:.3s;
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(25px);
+box-shadow:0 20px 50px rgba(0,0,0,0.7);
+transition:0.4s;
 }
-.card:hover{transform:translateY(-8px)}
-.card h3{margin-bottom:20px;color:var(--accent);font-size:22px}
-.card p{margin-bottom:12px;font-size:14px;color:var(--muted)}
-.card img{width:100%;border-radius:20px;margin-bottom:20px}
-form input,form textarea{
-width:100%;padding:14px;border-radius:15px;border:none;margin-bottom:15px;
-background:rgba(255,255,255,0.08);color:#fff;font-size:14px
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 40px rgba(255,182,193,0.4);
 }
-form textarea{resize:none;height:120px}
-form button{
-padding:14px 30px;border-radius:40px;border:none;
-background:linear-gradient(45deg,var(--accent),var(--accent-strong));
-font-weight:700;cursor:pointer
+
+.card img{
+width:100%;
+border-radius:20px;
+margin-bottom:20px;
 }
-footer{text-align:center;padding:50px 20px;background:rgba(0,0,0,0.8);color:var(--muted);margin-top:80px}
+
+.card h3{
+color:var(--accent);
+margin-bottom:15px;
+}
+
+.card p{
+font-size:14px;
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.back{
+margin-top:60px;
+text-align:center;
+}
+
+/* Footer */
+
+.footer-inline{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+}
+
+.footer-inline img{
+width:18px;
+height:18px;
+filter:invert(1);
+transition:0.25s ease;
+cursor:pointer;
+opacity:0.8;
+}
+
+.footer-inline img:hover{
+transform:scale(1.2);
+opacity:1;
+filter:invert(1) drop-shadow(0 0 8px var(--accent));
+}
 </style>
 </head>
+
 <body>
-<div class="overlay">
 
 <header>
-<img src="https://i.postimg.cc/XJPC1Nxs/PERFIL.jpg" alt="Logo">
+<img src="https://i.postimg.cc/XJPC1Nxs/PERFIL.jpg">
 <nav>
-<a href="https://caatffee.github.io/Caatffee/">Inicio</a>
-<a href="#Donaciones">Donaciones</a>
-<a href="#Updates">Updates</a>
-<a href="#feedback">Feedback</a>
-<a href="https://caatffee.github.io/Caatffee/#terminos">Términos</a>
-<a href="https://caatffee.github.io/Caatffee/#privacidad">Privacidad</a>
+<a onclick="show('inicio')">Inicio</a>
+<a onclick="show('Donaciones')">Donaciones</a>
+<a onclick="show('Updates')">Updates</a>
+<a onclick="show('terminos')">Términos</a>
+<a onclick="show('privacidad')">Privacidad</a>
 </nav>
 </header>
 
-<section class="hero">
-<img class="banner" src="https://i.postimg.cc/hjrPWWLS/Banner_Oficial.jpg" alt="Banner Oficial">
-<h1>Caatffee ☕ Control total desde tu chat</h1>
+<!-- INICIO -->
+<section id="inicio" class="active">
+<div class="hero">
+<img src="https://i.postimg.cc/hjrPWWLS/Banner_Oficial.jpg">
+<div class="badge">
+  ✨ El bot de gesstion más adorable para tu servidor
+</div>
+
+<h1 class="logo">
+  <span class="caat">Caat</span><span class="ffee">ffee</span>
+</h1>
 <p>
 Nacimos de la necesidad de simplificar la vida de los dueños de servidores y administradores.
 ¿Por qué abrir mil pestañas si puedes controlar todo desde un chat privado?
 Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 </p>
+
 <div class="buttons">
-<a class="btn" href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Añadir al Bot</a>
-<a class="btn" href="https://discord.gg/ESPYGjMqYK" target="_blank">Servidor Oficial</a>
+<a class="btn" href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">
+Añadir el Bot
+</a>
+
+<a class="btn" href="https://discord.gg/ESPYGjMqYK" target="_blank">
+Servidor de Soporte
+</a>
+</div>
 </div>
 </section>
 
+<!-- DONACIONES -->
 <section id="Donaciones">
 <h2 class="section-title">☕ Beneficios Premium 👑</h2>
 <div class="grid">
 
 <div class="card">
-<img src="https://i.postimg.cc/wM7xhFgv/Beneficios_Premiun!!.jpg">
+<img src="https://i.postimg.cc/vBgkfCh6/Donación_Básica_Banner.jpg">
 <h3>Donación Básica - $3.99</h3>
 <p>🌟 Rol exclusivo (Barista básico + Premium)</p>
 <p>📊 Estadísticas avanzadas básicas (más info de tu servidor)</p>
@@ -115,6 +328,7 @@ Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 </div>
 
 <div class="card">
+<img src="https://i.postimg.cc/KjdZtntg/Donación_Intermedia_Banner.jpg">
 <h3>Donación Intermedia - $5</h3>
 <p>Incluye todo lo anterior</p>
 <p>🎛 Más opciones de configuración del dashboard</p>
@@ -125,6 +339,7 @@ Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 </div>
 
 <div class="card">
+<img src="https://i.postimg.cc/2STSKBDv/Donación_Avanzada.jpg">
 <h3>Donación Avanzada - $10</h3>
 <p>Incluye todo lo anterior</p>
 <p>🤖 Comandos solo para  Baristas donadores Avanzados y Premiums</p>
@@ -135,6 +350,7 @@ Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 </div>
 
 <div class="card">
+<img src="https://i.postimg.cc/Pf6KTSMG/Donación_Barista_Ultra.jpg">
 <h3>Donación Barista Ultra- $15</h3>
 <p>Incluye todo lo anterior</p>
 <p>🏆 Badge de (ULTRA) visible en panel </p>
@@ -146,8 +362,12 @@ Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 </div>
 
 </div>
+<div class="back">
+<button class="btn" onclick="show('inicio')">Volver al menú principal</button>
+</div>
 </section>
 
+<!-- UPDATES -->
 <section id="Updates">
 <h2 class="section-title">🌸 Última Actualización 🌸</h2>
 <div class="card">
@@ -158,24 +378,83 @@ Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.🌸
 <p>/help /update /ban /purge /kick /timeout /lock /slowmode</p>
 <p>Configuración completa del servidor desde MD.</p>
 </div>
+<div class="back">
+<button class="btn" onclick="show('inicio')">Volver al menú principal</button>
+</div>
 </section>
 
-<section id="feedback">
-<h2 class="section-title">💬 Envíanos tu opinión ☕</h2>
+<!-- TERMINOS -->
+<section id="terminos">
+<h2 class="section-title">Términos de Servicio</h2>
+<p><strong>Última Actualización:</strong> 25/02/2026</p>
+
 <div class="card">
-<form action="https://formspree.io/f/mojnyewl" method="POST">
-<input type="text" name="name" placeholder="Tu nombre" required>
-<input type="email" name="email" placeholder="Tu correo" required>
-<textarea name="message" placeholder="Escribe tu sugerencia o comentario aquí..." required></textarea>
-<button type="submit">Enviar comentario</button>
-</form>
+    <h2 class="section">1. Uso Aceptable.</h2><p>• El usuario se compromete a utilizar el bot para fines lícitos.</p>
+    <p>• El uso de las comandos administrativos o de moderacion queda restringido al propietario y administradores o moderadores del servidor.</p>
+    <h2 class="section">2. Servicio Premium.</h2>
+    <p>• El estatus Premium se puede adquirir mediante una suscripción en Patreon mas informacion en nuestro <a href="https://discord.gg/ESPYGjMqYK" target="_blank" style="color: pink; text-decoration: none; font-weight: bold;">
+  👉Servidor oficial
+</a>
+<p>• Las suscripciones de Patreon se consideran donaciones para el mantenimiento y mejora del bot y no son reembolsables. <a href="https://www.patreon.com/15613390/join" target="_blank" style="color: pink; text-decoration: none; font-weight: bold;">
+  👉 Ver patreon
+</a>
+<p>• Los beneficios permanecen activos mientras la suscripción de Patreon está activa.<p>
+    <h2 class="section">3. Responsabilidad.</h2>
+    <p>• Caatffee no se hace responsable del mal uso por parte de los usuarios (mensajes ofensivos).<p>
+    <p>• Contamos con filtros preventivos, pero la conducta final es responsabilidad del usuario.<p>
+    <h2 class="section">4. Modificaciones.</h2>
+    <p>• Nos reservamos el derecho de actualizar estos términos para asegurar la integridad de la red Caatffee.<p>
+    <h5 class="section">Al usar Caatffee, usted reconoce haber leído y aceptado estos términos.</h5>
+    </div>
+
+<div class="back">
+<button class="btn" onclick="show('inicio')">Volver al menú principal</button>
+</div>
+</section>
+
+<!-- PRIVACIDAD -->
+<section id="privacidad">
+<h2 class="section-title">Política de Privacidad</h2>
+<div class="card">
+<h2 class="section">1. Recopilación de Datos.</h2>
+<p>• Recopilamos el ID de usuario para gestionar permisos y acciones. No compartimos esta información con terceros ni extraños.</p>
+<h2 class="section">2. Almacenamiento.</h2>
+<p>• Al configurar acciones, los datos no se guardan permanentemente, a menos que se trate de eventos cronometrados donde la información se mantiene hasta que se cumpla la fecha.</p>
+<h2 class="section">3. Seguridad.</h2>
+<p>• Toda la configuración se realiza por MD para proteger la privacidad de las acciones administrativas de los servidores.</p>
+<h2 class="section">4. Derechos del Usuario.</h2>
+<p>• Al sacar al bot del servidor, los cambios realizados permanecen, pero el bot ya no podrá realizar nuevas acciones ni guardará ningún tipo de información residual.</p>
+<h2 class="section">5. Transparencia.</h2>
+<p>• Nuestras políticas están diseñadas para que el usuario siempre tenga el control sobre qué información procesa Caatffee considera unirte al <a href="https://discord.gg/ESPYGjMqYK" target="_blank" style="color: pink; text-decoration: none; font-weight: bold;">
+  👉Servidor oficial
+  </a>
+</div>
+<div class="back">
+<button class="btn" onclick="show('inicio')">Volver al menú principal</button>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Caatffee — Proyecto oficial y profesional</p>
+  <div class="footer-inline">
+    <span>© 2026 Caatffee</span>
+
+    <a href="https://discord.gg/ESPYGjMqYK" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg">
+    </a>
+
+    <a href="https://www.patreon.com/15613390/join" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/patreon.svg">
+    </a>
+  </div>
 </footer>
 
-</div>
+<script>
+function show(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
 </body>
 </html>
