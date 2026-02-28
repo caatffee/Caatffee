@@ -1,18 +1,24 @@
-# Política de Privacidad de Caatffee
+# Política de Privacidad
 
-**Última actualización: 24 de febrero de 2026**
+**Última actualización: 27 de febrero de 2026**
 
-### 1. Recopilación de Datos
-Recopilamos el ID de usuario para gestionar permisos y acciones. No compartimos esta información con terceros ni extraños.
+### 1. Información Recopilada
+* Caatffee recopila únicamente la información mínima necesaria para su funcionamiento. Esto puede incluir identificadores públicos de Discord como ID de usuario, ID de servidor, ID de canales y roles cuando sea requerido para configuraciones administrativas.
+* No recopilamos contraseñas, correos electrónicos, mensajes privados personales ni información sensible fuera de lo estrictamente necesario para la operación del bot.
 
-### 2. Almacenamiento
-Al configurar acciones, los datos no se guardan permanentemente, a menos que se trate de eventos cronometrados donde la info se mantiene hasta que se cumpla la fecha.
+### 2. Uso de la Información
+* La información recopilada se utiliza exclusivamente para gestionar configuraciones, ejecutar acciones solicitadas por administradores y permitir el correcto funcionamiento de funciones automatizadas o eventos programados.
+* No vendemos ni compartimos datos a terceros.
 
-### 3. Seguridad
-Toda la configuración se realiza por MD para proteger la privacidad de las acciones administrativas de los servidores.
+### 3. Almacenamiento y Retención
+* Las configuraciones pueden almacenarse temporalmente para garantizar la continuidad del servicio. En el caso de eventos o mensajes programados, la información se conserva únicamente hasta que la acción se ejecute.
+* No se mantiene información de forma indefinida sin justificación operativa.
 
-### 4. Derechos del Usuario
-Al sacar al bot del servidor, los cambios realizados permanecen, pero el bot ya no podrá realizar nuevas acciones ni guardará ningún tipo de información residual.
+### 4. Seguridad
+* Las configuraciones administrativas pueden realizarse mediante mensajes directos con el bot para proteger la privacidad de las acciones dentro de los servidores. Se aplican medidas razonables para evitar accesos no autorizados.
 
-### 5. Transparencia
-Nuestras políticas están diseñadas para que el usuario siempre tenga el control sobre qué información procesa Caatffee.
+### 5. Eliminación de Datos
+* Al retirar Caatffee de un servidor, el bot deja de procesar información asociada y no conserva datos residuales innecesarios.
+
+### 6. Control del Usuario
+* Los propietarios y administradores pueden modificar o eliminar configuraciones en cualquier momento, así como retirar el bot del servidor cuando lo consideren necesario.
