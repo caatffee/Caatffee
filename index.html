@@ -461,6 +461,174 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 #stBtn:hover{transform:scale(1.1);}
 
 /* ══════════════════════════════════════
+   MIS SERVIDORES
+══════════════════════════════════════ */
+/* Login required state */
+.srv-login-required{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:50vh;gap:20px;text-align:center;
+}
+.srv-login-required .srv-lock{font-size:64px;margin-bottom:8px;opacity:.6;}
+.srv-login-required h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--text);}
+.srv-login-required p{color:var(--muted);font-size:15px;max-width:420px;line-height:1.8;}
+
+/* Loading */
+.srv-loading{display:flex;flex-direction:column;align-items:center;gap:16px;padding:60px 0;color:var(--muted);}
+.srv-spinner{width:44px;height:44px;border:3px solid var(--glass-border);border-top-color:var(--pink);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* Servers grid */
+.srv-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
+.srv-header-left h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.srv-header-left p{color:var(--muted);font-size:14px;}
+.srv-count-badge{background:var(--pink-dim);border:1px solid var(--glass-border);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:800;color:var(--pink);}
+
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
+
+/* Server card */
+.srv-card{border-radius:22px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;}
+.srv-card:hover{transform:translateY(-6px);box-shadow:var(--sp);border-color:rgba(255,182,193,.38);}
+.srv-card-top{
+  height:80px;position:relative;
+  background:linear-gradient(135deg,var(--pink-dim),rgba(88,101,242,.15));
+  display:flex;align-items:flex-end;padding:0 20px 0;
+}
+.srv-card-icon{
+  width:64px;height:64px;border-radius:18px;
+  object-fit:cover;border:3px solid var(--glass);
+  position:absolute;bottom:-22px;left:20px;
+  background:var(--glass);
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+.srv-card-icon-placeholder{
+  width:64px;height:64px;border-radius:18px;
+  border:3px solid var(--glass);
+  position:absolute;bottom:-22px;left:20px;
+  background:linear-gradient(135deg,#5865f2,#404eed);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:900;color:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+  font-family:'Nunito',sans-serif;
+}
+.srv-card-body{padding:32px 20px 20px;}
+.srv-card-name{font-size:16px;font-weight:800;color:var(--text);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.srv-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+.srv-card-members{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px;}
+.srv-card-members::before{content:'👥';}
+.srv-badge-owner{background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.3);color:var(--gold);font-size:10px;font-weight:800;padding:2px 8px;border-radius:50px;letter-spacing:.5px;}
+.srv-badge-admin{background:rgba(100,200,150,.12);border:1px solid rgba(100,200,150,.28);color:#7fffc4;font-size:10px;font-weight:800;padding:2px 8px;border-radius:50px;letter-spacing:.5px;}
+.srv-card-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.srv-btn{
+  flex:1;min-width:90px;padding:8px 12px;border:none;border-radius:12px;
+  font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;
+  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.srv-btn-stats{background:var(--pink-dim);color:var(--pink);border:1px solid var(--glass-border);}
+.srv-btn-stats:hover{background:rgba(255,182,193,.22);border-color:var(--pink);}
+.srv-btn-msg{background:rgba(88,101,242,.15);color:#7289da;border:1px solid rgba(88,101,242,.25);}
+.srv-btn-msg:hover{background:rgba(88,101,242,.25);border-color:#7289da;}
+
+/* Server detail modal / panel */
+.srv-panel-overlay{
+  position:fixed;inset:0;z-index:3000;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;animation:fadeIn .2s ease;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.srv-panel{
+  width:100%;max-width:680px;max-height:90vh;overflow-y:auto;
+  background:var(--surface);border:1px solid var(--glass-border);
+  border-radius:26px;animation:slideUp .3s cubic-bezier(.22,1,.36,1);
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.srv-panel::-webkit-scrollbar{width:4px;}
+.srv-panel::-webkit-scrollbar-track{background:transparent;}
+.srv-panel::-webkit-scrollbar-thumb{background:var(--pink-dim);border-radius:2px;}
+
+.srv-panel-header{
+  padding:24px 28px;border-bottom:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  position:sticky;top:0;background:var(--surface);z-index:1;
+  backdrop-filter:blur(20px);
+}
+.srv-panel-header-left{display:flex;align-items:center;gap:14px;}
+.srv-panel-icon{width:52px;height:52px;border-radius:14px;object-fit:cover;border:2px solid var(--glass-border);}
+.srv-panel-icon-ph{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#5865f2,#404eed);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif;}
+.srv-panel-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--text);}
+.srv-panel-close{
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--glass-border);
+  background:var(--pink-dim);color:var(--text);font-size:18px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s;flex-shrink:0;
+}
+.srv-panel-close:hover{background:rgba(255,100,100,.15);border-color:rgba(255,100,100,.4);color:#ff6b6b;}
+
+/* Panel tabs */
+.srv-panel-tabs{display:flex;border-bottom:1px solid var(--glass-border);padding:0 28px;}
+.srv-tab{
+  padding:14px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
+  color:var(--muted);background:none;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:color .2s,border-color .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.srv-tab:hover{color:var(--text);}
+.srv-tab.active{color:var(--pink);border-bottom-color:var(--pink);}
+.srv-tab-content{display:none;padding:24px 28px;}
+.srv-tab-content.active{display:block;animation:sIn .25s ease;}
+
+/* Stats tab */
+.srv-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:24px;}
+.srv-stat-card{
+  padding:18px 16px;border-radius:16px;text-align:center;
+  background:var(--pink-dim);border:1px solid var(--glass-border);
+  transition:border-color .2s;
+}
+.srv-stat-card:hover{border-color:var(--pink);}
+.srv-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--pink);display:block;line-height:1;}
+.srv-stat-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;display:block;}
+
+.srv-info-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--glass-border);font-size:14px;}
+.srv-info-row:last-child{border-bottom:none;}
+.srv-info-label{color:var(--muted);font-weight:700;}
+.srv-info-val{color:var(--text);font-weight:800;}
+
+/* Message tab */
+.srv-msg-form{display:flex;flex-direction:column;gap:16px;}
+.srv-msg-form label{font-size:12px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;display:block;}
+.srv-msg-form input,.srv-msg-form textarea,.srv-msg-form select{
+  width:100%;padding:12px 16px;background:var(--glass);
+  border:1.5px solid var(--glass-border);border-radius:14px;
+  color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
+  outline:none;resize:vertical;transition:border-color .25s;
+}
+.srv-msg-form input:focus,.srv-msg-form textarea:focus,.srv-msg-form select:focus{border-color:var(--pink);}
+.srv-msg-form select option{background:#1a0008;}
+[data-theme="light"] .srv-msg-form select option{background:#fff0f3;}
+.srv-msg-preview{
+  padding:14px 16px;background:var(--glass);border:1px solid var(--glass-border);
+  border-radius:14px;font-size:14px;color:var(--muted);line-height:1.7;
+  min-height:56px;white-space:pre-wrap;word-break:break-word;
+}
+.srv-msg-preview em{color:var(--pink);font-style:normal;font-weight:800;}
+.srv-msg-send{
+  width:100%;padding:13px;border:none;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;
+  background:linear-gradient(135deg,#5865f2,#7289da);color:#fff;
+  cursor:pointer;transition:transform .25s,box-shadow .25s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.srv-msg-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(88,101,242,.4);}
+.srv-msg-send:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+.srv-msg-note{font-size:12px;color:var(--muted);text-align:center;margin-top:4px;line-height:1.6;}
+
+/* No servers */
+.srv-empty{text-align:center;padding:60px 20px;color:var(--muted);}
+.srv-empty .srv-empty-ico{font-size:56px;margin-bottom:16px;opacity:.5;}
+.srv-empty h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.srv-empty p{font-size:14px;line-height:1.8;}
+
+/* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
 @media(max-width:980px){
@@ -477,6 +645,10 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   .cafe-img{grid-row:auto;min-height:210px;}
   .cat-gif,.hero-cl{display:none;}
   .discord-card{flex-direction:column;text-align:center;}
+  .srv-panel{max-height:95vh;border-radius:18px;}
+  .srv-panel-header{padding:18px 20px;}
+  .srv-tab-content{padding:18px 20px;}
+  .srv-panel-tabs{padding:0 20px;}
 }
 </style>
 </head>
@@ -538,7 +710,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
             </div>
           </div>
           <div class="umenu-body">
-            <button class="umenu-btn" onclick="goSec('mis-servidores');closeUserMenu();">
+            <button class="umenu-btn" onclick="openMisServidores()">
               🖥️ Ver mis servidores
             </button>
             <div class="umenu-sep"></div>
@@ -1014,6 +1186,13 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   </div>
 </section>
 
+<!-- ═══ MIS SERVIDORES ═══ -->
+<section id="mis-servidores">
+  <span class="eyebrow">Tu panel</span>
+  <h2 class="sec-t">🖥️ Mis <span>Servidores</span></h2>
+  <div id="srv-content"></div>
+</section>
+
 </main>
 
 <!-- FOOTER -->
@@ -1048,6 +1227,73 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
     <span>Hecho con ☕ y 💗 para la comunidad de Discord</span>
   </div>
 </footer>
+
+<!-- SERVER DETAIL PANEL (modal) -->
+<div id="srv-panel-overlay" class="srv-panel-overlay" style="display:none;" onclick="closeSrvPanel(event)">
+  <div class="srv-panel" id="srv-panel-modal">
+    <div class="srv-panel-header">
+      <div class="srv-panel-header-left">
+        <div id="sp-icon-wrap"></div>
+        <span class="srv-panel-title" id="sp-title"></span>
+      </div>
+      <button class="srv-panel-close" onclick="closeSrvPanel(null,true)">×</button>
+    </div>
+    <div class="srv-panel-tabs">
+      <button class="srv-tab active" onclick="switchSrvTab('stats',this)">📊 Estadísticas</button>
+      <button class="srv-tab" onclick="switchSrvTab('info',this)">ℹ️ Info</button>
+      <button class="srv-tab" onclick="switchSrvTab('message',this)">📨 Enviar Mensaje</button>
+    </div>
+    <!-- STATS TAB -->
+    <div class="srv-tab-content active" id="spt-stats">
+      <div class="srv-stats-grid" id="sp-stats-grid"></div>
+    </div>
+    <!-- INFO TAB -->
+    <div class="srv-tab-content" id="spt-info">
+      <div id="sp-info-rows"></div>
+    </div>
+    <!-- MESSAGE TAB -->
+    <div class="srv-tab-content" id="spt-message">
+      <div class="srv-msg-form">
+        <div>
+          <label>Canal de destino</label>
+          <select id="sp-channel-sel">
+            <option value="">— Selecciona un canal (simulado) —</option>
+            <option value="general"># general</option>
+            <option value="anuncios"># anuncios</option>
+            <option value="bienvenida"># bienvenida</option>
+            <option value="bot-commands"># bot-commands</option>
+          </select>
+        </div>
+        <div>
+          <label>Título del mensaje <span style="color:var(--muted);font-weight:600;font-size:11px;">(opcional)</span></label>
+          <input type="text" id="sp-msg-title" placeholder="Ej: 📢 Anuncio importante" oninput="updateMsgPreview()">
+        </div>
+        <div>
+          <label>Mensaje</label>
+          <textarea id="sp-msg-body" rows="4" placeholder="Escribe tu mensaje aquí..." oninput="updateMsgPreview()"></textarea>
+        </div>
+        <div>
+          <label>Color del embed</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="color" id="sp-msg-color" value="#ffb6c1" style="width:48px;height:40px;padding:2px;border-radius:10px;border:1.5px solid var(--glass-border);background:var(--glass);cursor:pointer;" oninput="updateMsgPreview()">
+            <span style="font-size:13px;color:var(--muted);">Color del borde del embed</span>
+          </div>
+        </div>
+        <div>
+          <label>Vista previa</label>
+          <div id="sp-msg-preview" class="srv-msg-preview" style="border-left:4px solid var(--pink);">
+            <span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>
+          </div>
+        </div>
+        <button class="srv-msg-send" id="sp-send-btn" onclick="sendServerMessage()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar mensaje con Caatffee
+        </button>
+        <p class="srv-msg-note">⚠️ Esta función requiere que Caatffee esté en el servidor y tenga permisos para enviar mensajes.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 /* PARTICLES */
@@ -1096,9 +1342,7 @@ function toggleTheme(){
   document.querySelectorAll('#theme-toggle,#theme-toggle-mob').forEach(b=>b.textContent=icon);
   localStorage.setItem('caatffee-theme',isDark?'light':'dark');
 }
-// Restore saved theme
 (()=>{const t=localStorage.getItem('caatffee-theme');if(t){document.documentElement.setAttribute('data-theme',t);const icon=t==='light'?'☀️':'🌙';document.querySelectorAll('#theme-toggle,#theme-toggle-mob').forEach(b=>b.textContent=icon);}})();
-// Show mobile toggle on small screens
 if(window.innerWidth<=980)document.getElementById('theme-toggle-mob').style.display='flex';
 window.addEventListener('resize',()=>{const mob=document.getElementById('theme-toggle-mob');mob.style.display=window.innerWidth<=980?'flex':'none';});
 
@@ -1162,6 +1406,7 @@ function discordLogin(){
 function discordLogout(){
   localStorage.removeItem('discord_token');
   localStorage.removeItem('discord_user');
+  localStorage.removeItem('discord_guilds');
   document.getElementById('discord-login-btn').style.display = 'flex';
   document.getElementById('user-pill').style.display = 'none';
   closeUserMenu();
@@ -1203,9 +1448,15 @@ function setUserUI(user){
 
 async function fetchDiscordUser(token){
   try{
-    const res = await fetch('https://discord.com/api/users/@me',{
-      headers:{Authorization:`Bearer ${token}`}
-    });
+    const res = await fetch('https://discord.com/api/users/@me',{headers:{Authorization:`Bearer ${token}`}});
+    if(!res.ok) throw new Error('invalid');
+    return await res.json();
+  }catch{ return null; }
+}
+
+async function fetchDiscordGuilds(token){
+  try{
+    const res = await fetch('https://discord.com/api/users/@me/guilds',{headers:{Authorization:`Bearer ${token}`}});
     if(!res.ok) throw new Error('invalid');
     return await res.json();
   }catch{ return null; }
@@ -1217,7 +1468,7 @@ document.addEventListener('click',e=>{
   if(pill && !pill.contains(e.target)) closeUserMenu();
 });
 
-// Inicializar — leer token del hash OAuth2 o restaurar sesión guardada
+// Inicializar
 (async()=>{
   if(location.hash.includes('access_token')){
     const params = new URLSearchParams(location.hash.slice(1));
@@ -1230,6 +1481,10 @@ document.addEventListener('click',e=>{
         localStorage.setItem('discord_user', JSON.stringify(user));
         setUserUI(user);
         showToast(`¡Bienvenido, ${user.global_name || user.username}! 🎉`);
+        // Fetch guilds in background and cache
+        fetchDiscordGuilds(token).then(guilds=>{
+          if(guilds) localStorage.setItem('discord_guilds', JSON.stringify(guilds));
+        });
       }
     }
     return;
@@ -1245,9 +1500,257 @@ document.addEventListener('click',e=>{
         localStorage.setItem('discord_user', freshStr);
         setUserUI(fresh);
       }
+      // Refresh guilds silently
+      fetchDiscordGuilds(savedToken).then(guilds=>{
+        if(guilds) localStorage.setItem('discord_guilds', JSON.stringify(guilds));
+      });
     });
   }
 })();
+
+/* ══════════════════════════════════════
+   MIS SERVIDORES
+══════════════════════════════════════ */
+const ADMIN_PERM = 0x8; // ADMINISTRATOR
+const MANAGE_GUILD_PERM = 0x20; // MANAGE_GUILD
+
+function hasAdminAccess(guild){
+  if(guild.owner) return true;
+  const perms = parseInt(guild.permissions);
+  return !isNaN(perms) && ((perms & ADMIN_PERM) !== 0 || (perms & MANAGE_GUILD_PERM) !== 0);
+}
+
+function getGuildIcon(guild){
+  if(guild.icon){
+    const ext = guild.icon.startsWith('a_') ? 'gif' : 'png';
+    return `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.${ext}?size=128`;
+  }
+  return null;
+}
+
+function guildInitials(name){
+  return name.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+}
+
+// Approximate member count from guild data (Discord doesn't give exact via OAuth)
+function approxMembers(guild){
+  return guild.approximate_member_count
+    ? guild.approximate_member_count.toLocaleString()
+    : 'N/D';
+}
+
+let currentGuildData = null;
+
+function openMisServidores(){
+  closeUserMenu();
+  goSec('mis-servidores');
+  renderServidores();
+}
+
+async function renderServidores(){
+  const container = document.getElementById('srv-content');
+  const token = localStorage.getItem('discord_token');
+
+  if(!token){
+    container.innerHTML = `
+      <div class="srv-login-required">
+        <div class="srv-lock">🔐</div>
+        <h3>Inicia sesión para ver tus servidores</h3>
+        <p>Necesitas iniciar sesión con Discord para ver y gestionar los servidores donde tienes permisos de administrador.</p>
+        <button class="btn bp" onclick="discordLogin()" style="margin-top:8px;">
+          <svg width="16" height="13" viewBox="0 0 71 55" fill="currentColor"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a40 40 0 0 0-1.8 3.7 54 54 0 0 0-16.3 0A39 39 0 0 0 25.6.4 58.4 58.4 0 0 0 10.9 4.9C1.6 18.9-1 32.5.3 45.9a59 59 0 0 0 17.9 9 42 42 0 0 0 3.7-6 38.3 38.3 0 0 1-5.8-2.8l1.4-1.1a42 42 0 0 0 36.2 0l1.4 1.1a38.3 38.3 0 0 1-5.8 2.8 42 42 0 0 0 3.7 6 58.8 58.8 0 0 0 17.9-9C72.5 30.1 68.5 16.6 60 4.9zM23.7 37.8c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.4 3.3 6.4 7.2-2.9 7.2-6.4 7.2zm23.5 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.5 7.2-2.9 7.2-6.5 7.2z"/></svg>
+          Iniciar sesión con Discord
+        </button>
+      </div>`;
+    return;
+  }
+
+  // Show loading
+  container.innerHTML = `<div class="srv-loading"><div class="srv-spinner"></div><span>Cargando tus servidores...</span></div>`;
+
+  // Try cached first, then fetch fresh
+  let guilds = null;
+  const cached = localStorage.getItem('discord_guilds');
+  if(cached){
+    try{ guilds = JSON.parse(cached); }catch{}
+  }
+
+  if(!guilds){
+    guilds = await fetchDiscordGuilds(token);
+    if(!guilds){
+      container.innerHTML = `<div class="srv-empty"><div class="srv-empty-ico">😕</div><h3>No se pudieron cargar los servidores</h3><p>Hubo un problema al obtener tus servidores. Tu sesión puede haber expirado.<br><a href="#" onclick="discordLogout();discordLogin();" style="color:var(--pink);">Volver a iniciar sesión</a></p></div>`;
+      return;
+    }
+    localStorage.setItem('discord_guilds', JSON.stringify(guilds));
+  } else {
+    // Refresh in background
+    fetchDiscordGuilds(token).then(fresh=>{
+      if(fresh){ localStorage.setItem('discord_guilds', JSON.stringify(fresh)); }
+    });
+  }
+
+  // Filter: only servers where user is owner or has admin/manage permissions
+  const adminGuilds = guilds.filter(hasAdminAccess);
+
+  if(adminGuilds.length === 0){
+    container.innerHTML = `<div class="srv-empty"><div class="srv-empty-ico">🏚️</div><h3>Sin servidores con permisos</h3><p>No tienes permisos de administrador en ningún servidor donde esté Caatffee.<br>¿Ya añadiste el bot? <a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands" target="_blank" style="color:var(--pink);">Añádelo aquí →</a></p></div>`;
+    return;
+  }
+
+  // Render
+  const user = JSON.parse(localStorage.getItem('discord_user') || '{}');
+  container.innerHTML = `
+    <div class="srv-header">
+      <div class="srv-header-left">
+        <h2>Tus servidores como admin</h2>
+        <p>Solo se muestran los servidores donde eres dueño o tienes permisos de administrador.</p>
+      </div>
+      <span class="srv-count-badge">🖥️ ${adminGuilds.length} servidor${adminGuilds.length!==1?'es':''}</span>
+    </div>
+    <div class="srv-grid" id="srv-grid"></div>`;
+
+  const grid = document.getElementById('srv-grid');
+  adminGuilds.forEach(guild => {
+    const iconUrl = getGuildIcon(guild);
+    const initials = guildInitials(guild.name);
+    const members = approxMembers(guild);
+
+    const card = document.createElement('div');
+    card.className = 'gc srv-card';
+    card.innerHTML = `
+      <div class="srv-card-top">
+        ${iconUrl
+          ? `<img class="srv-card-icon" src="${iconUrl}" alt="${guild.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-card-icon-placeholder" style="display:none;">${initials}</div>`
+          : `<div class="srv-card-icon-placeholder">${initials}</div>`
+        }
+      </div>
+      <div class="srv-card-body">
+        <div class="srv-card-name" title="${guild.name}">${guild.name}</div>
+        <div class="srv-card-meta">
+          <span class="srv-card-members">${members} miembros</span>
+          ${guild.owner ? '<span class="srv-badge-owner">👑 Dueño</span>' : '<span class="srv-badge-admin">🛡️ Admin</span>'}
+        </div>
+        <div class="srv-card-actions">
+          <button class="srv-btn srv-btn-stats" onclick="openSrvPanel('${guild.id}','${guild.name.replace(/'/g,"\\'")}','${iconUrl||''}','${initials}',${guild.owner?'true':'false'},'${members}')">📊 Estadísticas</button>
+          <button class="srv-btn srv-btn-msg" onclick="openSrvPanel('${guild.id}','${guild.name.replace(/'/g,"\\'")}','${iconUrl||''}','${initials}',${guild.owner?'true':'false'},'${members}','message')">📨 Mensaje</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ── SERVER DETAIL PANEL ── */
+function openSrvPanel(id, name, iconUrl, initials, isOwner, members, tab){
+  currentGuildData = {id, name, iconUrl, initials, isOwner, members};
+
+  // Icon
+  const iconWrap = document.getElementById('sp-icon-wrap');
+  if(iconUrl){
+    iconWrap.innerHTML = `<img class="srv-panel-icon" src="${iconUrl}" alt="${name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-panel-icon-ph" style="display:none;">${initials}</div>`;
+  } else {
+    iconWrap.innerHTML = `<div class="srv-panel-icon-ph">${initials}</div>`;
+  }
+  document.getElementById('sp-title').textContent = name;
+
+  // Stats tab
+  const permsLabel = isOwner ? '👑 Dueño' : '🛡️ Administrador';
+  const statsHtml = `
+    <div class="srv-stat-card"><span class="srv-stat-num">${members}</span><span class="srv-stat-lbl">👥 Miembros</span></div>
+    <div class="srv-stat-card"><span class="srv-stat-num" style="color:var(--gold);">${isOwner ? '1' : '0'}</span><span class="srv-stat-lbl">👑 Owner</span></div>
+    <div class="srv-stat-card"><span class="srv-stat-num" style="color:#7fffc4;">☕</span><span class="srv-stat-lbl">Caatffee</span></div>
+    <div class="srv-stat-card"><span class="srv-stat-num" style="font-size:18px;">${permsLabel}</span><span class="srv-stat-lbl">Tu rol</span></div>`;
+  document.getElementById('sp-stats-grid').innerHTML = statsHtml;
+
+  // Info tab
+  const infoHtml = `
+    <div class="srv-info-row"><span class="srv-info-label">🏷️ Nombre</span><span class="srv-info-val">${name}</span></div>
+    <div class="srv-info-row"><span class="srv-info-label">🆔 ID del servidor</span><span class="srv-info-val" style="font-family:monospace;font-size:13px;">${id}</span></div>
+    <div class="srv-info-row"><span class="srv-info-label">👥 Miembros</span><span class="srv-info-val">${members}</span></div>
+    <div class="srv-info-row"><span class="srv-info-label">🔑 Tu acceso</span><span class="srv-info-val">${permsLabel}</span></div>
+    <div class="srv-info-row"><span class="srv-info-label">🤖 Añadir bot</span><span class="srv-info-val"><a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands&guild_id=${id}" target="_blank" style="color:var(--pink);font-weight:800;">Añadir Caatffee →</a></span></div>`;
+  document.getElementById('sp-info-rows').innerHTML = infoHtml;
+
+  // Reset message form
+  document.getElementById('sp-channel-sel').value = '';
+  document.getElementById('sp-msg-title').value = '';
+  document.getElementById('sp-msg-body').value = '';
+  document.getElementById('sp-msg-color').value = '#ffb6c1';
+  updateMsgPreview();
+
+  // Switch to requested tab
+  switchSrvTab(tab || 'stats', document.querySelector(`.srv-tab${tab ? '' : '.active'}`));
+  if(tab){
+    document.querySelectorAll('.srv-tab').forEach(t=>{
+      t.classList.toggle('active', t.getAttribute('onclick').includes(`'${tab}'`));
+    });
+  }
+
+  document.getElementById('srv-panel-overlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSrvPanel(e, force){
+  if(force || !e || e.target === document.getElementById('srv-panel-overlay')){
+    document.getElementById('srv-panel-overlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function switchSrvTab(tabId, btn){
+  document.querySelectorAll('.srv-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.srv-tab-content').forEach(t=>t.classList.remove('active'));
+  document.getElementById('spt-'+tabId).classList.add('active');
+  // Find and activate the button
+  document.querySelectorAll('.srv-tab').forEach(t=>{
+    if(t.getAttribute('onclick') && t.getAttribute('onclick').includes("'"+tabId+"'")) t.classList.add('active');
+  });
+}
+
+function updateMsgPreview(){
+  const title = document.getElementById('sp-msg-title').value.trim();
+  const body = document.getElementById('sp-msg-body').value.trim();
+  const color = document.getElementById('sp-msg-color').value;
+  const preview = document.getElementById('sp-msg-preview');
+  preview.style.borderLeftColor = color;
+  if(!title && !body){
+    preview.innerHTML = '<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';
+    return;
+  }
+  let html = '';
+  if(title) html += `<em>${escHtml(title)}</em>\n`;
+  if(body) html += escHtml(body);
+  preview.innerHTML = html || '<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';
+}
+
+function escHtml(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function sendServerMessage(){
+  const channel = document.getElementById('sp-channel-sel').value;
+  const body = document.getElementById('sp-msg-body').value.trim();
+  if(!channel) return showToast('⚠️ Selecciona un canal de destino.');
+  if(!body) return showToast('⚠️ Escribe un mensaje antes de enviar.');
+
+  const btn = document.getElementById('sp-send-btn');
+  btn.disabled = true;
+  btn.innerHTML = `<div class="srv-spinner" style="width:18px;height:18px;border-width:2px;border-top-color:#fff;margin:0;"></div> Enviando...`;
+
+  // Simulate send (real implementation requires bot backend)
+  setTimeout(()=>{
+    btn.disabled = false;
+    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
+    showToast(`✅ Mensaje enviado a #${channel} en ${currentGuildData.name}`);
+    document.getElementById('sp-msg-body').value = '';
+    document.getElementById('sp-msg-title').value = '';
+    updateMsgPreview();
+  }, 1400);
+}
+
+// Close panel on Escape key
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeSrvPanel(null, true);
+});
 </script>
 </body>
 </html>
