@@ -1724,25 +1724,113 @@ function escHtml(s){
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function sendServerMessage(){
-  const channel = document.getElementById('sp-channel-sel').value;
-  const body = document.getElementById('sp-msg-body').value.trim();
-  if(!channel) return showToast('⚠️ Selecciona un canal de destino.');
-  if(!body) return showToast('⚠️ Escribe un mensaje antes de enviar.');
+async function loadChannels(guildId){
+  const token = localStorage.getItem('discord_token');
+  if(!token) return;
+  const sel = document.getElementById('sp-channel-sel');
+  sel.innerHTML = '<option value="">— Cargando canales... —</option>';
+  try{
+    const res = await fetch(`${BOT_API_URL}/api/guild/${guildId}/channels`,{
+      headers:{'Authorization':`Bearer ${token}`}
+    });
+    const data = await res.json();
+    if(!res.ok || !data.channels){
+      sel.innerHTML = `<option value="">— ${data.error||'Error cargando canales'} —</option>`;
+      return;
+    }
+    const byCategory = {};
+    for(const ch of data.channels){
+      const cat = ch.category||'Sin categoría';
+      if(!byCategory[cat]) byCategory[cat]=[];
+      byCategory[cat].push(ch);
+    }
+    sel.innerHTML = '<option value="">— Selecciona un canal —</option>';
+    for(const [cat,channels] of Object.entries(byCategory)){
+      const g = document.createElement('optgroup');
+      g.label = cat;
+      for(const ch of channels){
+        const o = document.createElement('option');
+        o.value = ch.id;
+        o.textContent = `${ch.type==='announcement'?'📢':'#'} ${ch.name}`;
+        g.appendChild(o);
+      }
+      sel.appendChild(g);
+    }
+  }catch(e){
+    sel.innerHTML='<option value="">— Bot no disponible —</option>';
+  }
+}
 
+async function loadChannels(guildId){
+  const token = localStorage.getItem('discord_token');
+  if(!token) return;
+  const sel = document.getElementById('sp-channel-sel');
+  sel.innerHTML = '<option value="">— Cargando canales... —</option>';
+  try{
+    const res = await fetch(`${BOT_API_URL}/api/guild/${guildId}/channels`,{
+      headers:{'Authorization':`Bearer ${token}`}
+    });
+    const data = await res.json();
+    if(!res.ok || !data.channels){
+      sel.innerHTML = `<option value="">— ${data.error||'Error cargando canales'} —</option>`;
+      return;
+    }
+    const byCategory = {};
+    for(const ch of data.channels){
+      const cat = ch.category||'Sin categoría';
+      if(!byCategory[cat]) byCategory[cat]=[];
+      byCategory[cat].push(ch);
+    }
+    sel.innerHTML = '<option value="">— Selecciona un canal —</option>';
+    for(const [cat,channels] of Object.entries(byCategory)){
+      const g = document.createElement('optgroup');
+      g.label = cat;
+      for(const ch of channels){
+        const o = document.createElement('option');
+        o.value = ch.id;
+        o.textContent = `${ch.type==='announcement'?'📢':'#'} ${ch.name}`;
+        g.appendChild(o);
+      }
+      sel.appendChild(g);
+    }
+  }catch(e){
+    sel.innerHTML='<option value="">— Bot no disponible —</option>';
+  }
+}
+
+async function sendServerMessage(){
+  const channelId = document.getElementById('sp-channel-sel').value;
+  const body      = document.getElementById('sp-msg-body').value.trim();
+  const title     = document.getElementById('sp-msg-title').value.trim();
+  const color     = document.getElementById('sp-msg-color').value;
+  const token     = localStorage.getItem('discord_token');
+  if(!channelId) return showToast('⚠️ Selecciona un canal de destino.');
+  if(!body)      return showToast('⚠️ Escribe un mensaje antes de enviar.');
+  if(!token)     return showToast('⚠️ Debes iniciar sesión primero.');
   const btn = document.getElementById('sp-send-btn');
   btn.disabled = true;
   btn.innerHTML = `<div class="srv-spinner" style="width:18px;height:18px;border-width:2px;border-top-color:#fff;margin:0;"></div> Enviando...`;
-
-  // Simulate send (real implementation requires bot backend)
-  setTimeout(()=>{
-    btn.disabled = false;
-    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
-    showToast(`✅ Mensaje enviado a #${channel} en ${currentGuildData.name}`);
-    document.getElementById('sp-msg-body').value = '';
-    document.getElementById('sp-msg-title').value = '';
-    updateMsgPreview();
-  }, 1400);
+  try{
+    const res = await fetch(`${BOT_API_URL}/api/send-message`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},
+      body: JSON.stringify({guildId:currentGuildData.id,channelId,title:title||undefined,message:body,color})
+    });
+    const data = await res.json();
+    if(!res.ok){
+      showToast(`❌ ${data.error||'Error al enviar el mensaje.'}`);
+    }else{
+      showToast(`✅ Mensaje enviado en #${data.channel} — ${data.guild}`);
+      document.getElementById('sp-msg-body').value='';
+      document.getElementById('sp-msg-title').value='';
+      updateMsgPreview();
+    }
+  }catch(e){
+    showToast('❌ No se pudo conectar con el bot.');
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
+  }
 }
 
 // Close panel on Escape key
