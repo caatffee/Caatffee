@@ -1394,7 +1394,8 @@ document.addEventListener('mousemove',e=>{tX=e.clientX;tY=e.clientY;if(tP)return
    DISCORD OAUTH2 LOGIN
 ══════════════════════════════════════ */
 const DISCORD_CLIENT_ID = '1475842620063485993';
-
+const BOT_API_URL = 'http://prem-eu3.bot-hosting.net:21667';
+   
 function discordLogin(){
   const redirectUri = encodeURIComponent(location.origin + location.pathname);
   const state = Math.random().toString(36).slice(2);
