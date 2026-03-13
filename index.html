@@ -1673,6 +1673,7 @@ function openSrvPanel(id, name, iconUrl, initials, isOwner, members, tab){
   document.getElementById('sp-msg-body').value = '';
   document.getElementById('sp-msg-color').value = '#ffb6c1';
   updateMsgPreview();
+   loadChannels(id);
 
   // Switch to requested tab
   switchSrvTab(tab || 'stats', document.querySelector(`.srv-tab${tab ? '' : '.active'}`));
