@@ -118,7 +118,6 @@ nav a.active{color:var(--pink);}
 .nav-cta:hover{box-shadow:0 0 26px var(--pink-glow)!important;transform:translateY(-2px)!important;}
 .nav-cta::after{display:none!important;}
 
-/* Dark/Light toggle */
 #theme-toggle{
   margin-left:10px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--glass-border);
   background:var(--pink-dim);color:var(--text);font-size:18px;
@@ -410,7 +409,6 @@ section.active{display:block;animation:sIn .45s cubic-bezier(.22,1,.36,1);}
 .credit-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px;}
 .credit-desc{font-size:14px;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 22px;}
 .credit-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-
 .discord-card{padding:30px 32px;display:flex;align-items:center;gap:26px;border-radius:22px;}
 .discord-logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#5865f2,#404eed);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0;box-shadow:0 6px 24px rgba(88,101,242,.4);}
 .discord-info h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px;}
@@ -463,53 +461,26 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 /* ══════════════════════════════════════
    MIS SERVIDORES
 ══════════════════════════════════════ */
-/* Login required state */
-.srv-login-required{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:50vh;gap:20px;text-align:center;
-}
+.srv-login-required{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;gap:20px;text-align:center;}
 .srv-login-required .srv-lock{font-size:64px;margin-bottom:8px;opacity:.6;}
 .srv-login-required h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--text);}
 .srv-login-required p{color:var(--muted);font-size:15px;max-width:420px;line-height:1.8;}
 
-/* Loading */
 .srv-loading{display:flex;flex-direction:column;align-items:center;gap:16px;padding:60px 0;color:var(--muted);}
 .srv-spinner{width:44px;height:44px;border:3px solid var(--glass-border);border-top-color:var(--pink);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
-/* Servers grid */
 .srv-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
 .srv-header-left h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--text);margin-bottom:4px;}
 .srv-header-left p{color:var(--muted);font-size:14px;}
 .srv-count-badge{background:var(--pink-dim);border:1px solid var(--glass-border);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:800;color:var(--pink);}
-
 .srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
 
-/* Server card */
 .srv-card{border-radius:22px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s,border-color .3s;}
 .srv-card:hover{transform:translateY(-6px);box-shadow:var(--sp);border-color:rgba(255,182,193,.38);}
-.srv-card-top{
-  height:80px;position:relative;
-  background:linear-gradient(135deg,var(--pink-dim),rgba(88,101,242,.15));
-  display:flex;align-items:flex-end;padding:0 20px 0;
-}
-.srv-card-icon{
-  width:64px;height:64px;border-radius:18px;
-  object-fit:cover;border:3px solid var(--glass);
-  position:absolute;bottom:-22px;left:20px;
-  background:var(--glass);
-  box-shadow:0 4px 16px rgba(0,0,0,.3);
-}
-.srv-card-icon-placeholder{
-  width:64px;height:64px;border-radius:18px;
-  border:3px solid var(--glass);
-  position:absolute;bottom:-22px;left:20px;
-  background:linear-gradient(135deg,#5865f2,#404eed);
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:900;color:#fff;
-  box-shadow:0 4px 16px rgba(0,0,0,.3);
-  font-family:'Nunito',sans-serif;
-}
+.srv-card-top{height:80px;position:relative;background:linear-gradient(135deg,var(--pink-dim),rgba(88,101,242,.15));display:flex;align-items:flex-end;padding:0 20px 0;}
+.srv-card-icon{width:64px;height:64px;border-radius:18px;object-fit:cover;border:3px solid var(--glass);position:absolute;bottom:-22px;left:20px;background:var(--glass);box-shadow:0 4px 16px rgba(0,0,0,.3);}
+.srv-card-icon-placeholder{width:64px;height:64px;border-radius:18px;border:3px solid var(--glass);position:absolute;bottom:-22px;left:20px;background:linear-gradient(135deg,#5865f2,#404eed);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.3);font-family:'Nunito',sans-serif;}
 .srv-card-body{padding:32px 20px 20px;}
 .srv-card-name{font-size:16px;font-weight:800;color:var(--text);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .srv-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
@@ -518,72 +489,38 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 .srv-badge-owner{background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.3);color:var(--gold);font-size:10px;font-weight:800;padding:2px 8px;border-radius:50px;letter-spacing:.5px;}
 .srv-badge-admin{background:rgba(100,200,150,.12);border:1px solid rgba(100,200,150,.28);color:#7fffc4;font-size:10px;font-weight:800;padding:2px 8px;border-radius:50px;letter-spacing:.5px;}
 .srv-card-actions{display:flex;gap:8px;flex-wrap:wrap;}
-.srv-btn{
-  flex:1;min-width:90px;padding:8px 12px;border:none;border-radius:12px;
-  font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;
-  cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;
-}
+.srv-btn{flex:1;min-width:90px;padding:8px 12px;border:none;border-radius:12px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;}
 .srv-btn-stats{background:var(--pink-dim);color:var(--pink);border:1px solid var(--glass-border);}
 .srv-btn-stats:hover{background:rgba(255,182,193,.22);border-color:var(--pink);}
 .srv-btn-msg{background:rgba(88,101,242,.15);color:#7289da;border:1px solid rgba(88,101,242,.25);}
 .srv-btn-msg:hover{background:rgba(88,101,242,.25);border-color:#7289da;}
 
-/* Server detail modal / panel */
-.srv-panel-overlay{
-  position:fixed;inset:0;z-index:3000;
-  background:rgba(0,0,0,.7);backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  padding:20px;animation:fadeIn .2s ease;
-}
+/* Panel modal */
+.srv-panel-overlay{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s ease;}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.srv-panel{
-  width:100%;max-width:680px;max-height:90vh;overflow-y:auto;
-  background:var(--surface);border:1px solid var(--glass-border);
-  border-radius:26px;animation:slideUp .3s cubic-bezier(.22,1,.36,1);
-}
+.srv-panel{width:100%;max-width:680px;max-height:90vh;overflow-y:auto;background:var(--surface);border:1px solid var(--glass-border);border-radius:26px;animation:slideUp .3s cubic-bezier(.22,1,.36,1);}
 @keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 .srv-panel::-webkit-scrollbar{width:4px;}
 .srv-panel::-webkit-scrollbar-track{background:transparent;}
 .srv-panel::-webkit-scrollbar-thumb{background:var(--pink-dim);border-radius:2px;}
 
-.srv-panel-header{
-  padding:24px 28px;border-bottom:1px solid var(--glass-border);
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  position:sticky;top:0;background:var(--surface);z-index:1;
-  backdrop-filter:blur(20px);
-}
+.srv-panel-header{padding:24px 28px;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;background:var(--surface);z-index:1;backdrop-filter:blur(20px);}
 .srv-panel-header-left{display:flex;align-items:center;gap:14px;}
 .srv-panel-icon{width:52px;height:52px;border-radius:14px;object-fit:cover;border:2px solid var(--glass-border);}
 .srv-panel-icon-ph{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#5865f2,#404eed);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#fff;font-family:'Nunito',sans-serif;}
 .srv-panel-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--text);}
-.srv-panel-close{
-  width:36px;height:36px;border-radius:50%;border:1px solid var(--glass-border);
-  background:var(--pink-dim);color:var(--text);font-size:18px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  transition:background .2s,border-color .2s;flex-shrink:0;
-}
+.srv-panel-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--glass-border);background:var(--pink-dim);color:var(--text);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s;flex-shrink:0;}
 .srv-panel-close:hover{background:rgba(255,100,100,.15);border-color:rgba(255,100,100,.4);color:#ff6b6b;}
 
-/* Panel tabs */
-.srv-panel-tabs{display:flex;border-bottom:1px solid var(--glass-border);padding:0 28px;}
-.srv-tab{
-  padding:14px 16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;
-  color:var(--muted);background:none;border:none;cursor:pointer;
-  border-bottom:2px solid transparent;transition:color .2s,border-color .2s;
-  display:flex;align-items:center;gap:6px;
-}
+.srv-panel-tabs{display:flex;border-bottom:1px solid var(--glass-border);padding:0 28px;overflow-x:auto;}
+.srv-tab{padding:14px 14px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--muted);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;display:flex;align-items:center;gap:6px;white-space:nowrap;}
 .srv-tab:hover{color:var(--text);}
 .srv-tab.active{color:var(--pink);border-bottom-color:var(--pink);}
 .srv-tab-content{display:none;padding:24px 28px;}
 .srv-tab-content.active{display:block;animation:sIn .25s ease;}
 
-/* Stats tab */
 .srv-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:24px;}
-.srv-stat-card{
-  padding:18px 16px;border-radius:16px;text-align:center;
-  background:var(--pink-dim);border:1px solid var(--glass-border);
-  transition:border-color .2s;
-}
+.srv-stat-card{padding:18px 16px;border-radius:16px;text-align:center;background:var(--pink-dim);border:1px solid var(--glass-border);transition:border-color .2s;}
 .srv-stat-card:hover{border-color:var(--pink);}
 .srv-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--pink);display:block;line-height:1;}
 .srv-stat-lbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;display:block;}
@@ -593,36 +530,19 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 .srv-info-label{color:var(--muted);font-weight:700;}
 .srv-info-val{color:var(--text);font-weight:800;}
 
-/* Message tab */
 .srv-msg-form{display:flex;flex-direction:column;gap:16px;}
 .srv-msg-form label{font-size:12px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;display:block;}
-.srv-msg-form input,.srv-msg-form textarea,.srv-msg-form select{
-  width:100%;padding:12px 16px;background:var(--glass);
-  border:1.5px solid var(--glass-border);border-radius:14px;
-  color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;
-  outline:none;resize:vertical;transition:border-color .25s;
-}
+.srv-msg-form input,.srv-msg-form textarea,.srv-msg-form select{width:100%;padding:12px 16px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:14px;color:var(--text);font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;outline:none;resize:vertical;transition:border-color .25s;}
 .srv-msg-form input:focus,.srv-msg-form textarea:focus,.srv-msg-form select:focus{border-color:var(--pink);}
 .srv-msg-form select option{background:#1a0008;}
 [data-theme="light"] .srv-msg-form select option{background:#fff0f3;}
-.srv-msg-preview{
-  padding:14px 16px;background:var(--glass);border:1px solid var(--glass-border);
-  border-radius:14px;font-size:14px;color:var(--muted);line-height:1.7;
-  min-height:56px;white-space:pre-wrap;word-break:break-word;
-}
+.srv-msg-preview{padding:14px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:14px;font-size:14px;color:var(--muted);line-height:1.7;min-height:56px;white-space:pre-wrap;word-break:break-word;}
 .srv-msg-preview em{color:var(--pink);font-style:normal;font-weight:800;}
-.srv-msg-send{
-  width:100%;padding:13px;border:none;border-radius:50px;
-  font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;
-  background:linear-gradient(135deg,#5865f2,#7289da);color:#fff;
-  cursor:pointer;transition:transform .25s,box-shadow .25s;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
+.srv-msg-send{width:100%;padding:13px;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;background:linear-gradient(135deg,#5865f2,#7289da);color:#fff;cursor:pointer;transition:transform .25s,box-shadow .25s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .srv-msg-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(88,101,242,.4);}
 .srv-msg-send:disabled{opacity:.5;cursor:not-allowed;transform:none;}
 .srv-msg-note{font-size:12px;color:var(--muted);text-align:center;margin-top:4px;line-height:1.6;}
 
-/* No servers */
 .srv-empty{text-align:center;padding:60px 20px;color:var(--muted);}
 .srv-empty .srv-empty-ico{font-size:56px;margin-bottom:16px;opacity:.5;}
 .srv-empty h3{font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
@@ -648,7 +568,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   .srv-panel{max-height:95vh;border-radius:18px;}
   .srv-panel-header{padding:18px 20px;}
   .srv-tab-content{padding:18px 20px;}
-  .srv-panel-tabs{padding:0 20px;}
+  .srv-panel-tabs{padding:0 12px;}
 }
 </style>
 </head>
@@ -687,14 +607,11 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
     <button id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
   </nav>
   <div style="display:flex;align-items:center;gap:6px;">
-    <!-- AUTH AREA -->
     <div id="auth-area">
-      <!-- Sin sesión -->
       <button id="discord-login-btn" onclick="discordLogin()">
         <svg width="16" height="13" viewBox="0 0 71 55" fill="white" style="flex-shrink:0;"><path d="M60.1 4.9A58.5 58.5 0 0 0 45.5.4a40 40 0 0 0-1.8 3.7 54 54 0 0 0-16.3 0A39 39 0 0 0 25.6.4 58.4 58.4 0 0 0 10.9 4.9C1.6 18.9-1 32.5.3 45.9a59 59 0 0 0 17.9 9 42 42 0 0 0 3.7-6 38.3 38.3 0 0 1-5.8-2.8l1.4-1.1a42 42 0 0 0 36.2 0l1.4 1.1a38.3 38.3 0 0 1-5.8 2.8 42 42 0 0 0 3.7 6 58.8 58.8 0 0 0 17.9-9C72.5 30.1 68.5 16.6 60 4.9zM23.7 37.8c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.4 3.3 6.4 7.2-2.9 7.2-6.4 7.2zm23.5 0c-3.5 0-6.4-3.2-6.4-7.2s2.8-7.2 6.4-7.2 6.5 3.3 6.5 7.2-2.9 7.2-6.5 7.2z"/></svg>
         Iniciar sesión
       </button>
-      <!-- Con sesión -->
       <div id="user-pill">
         <button id="user-pill-btn" onclick="toggleUserMenu()">
           <img id="user-avatar" src="" alt="avatar">
@@ -704,19 +621,12 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
         <div id="user-menu">
           <div class="umenu-head">
             <img id="menu-avatar" src="" alt="">
-            <div>
-              <p id="menu-name"></p>
-              <p id="menu-tag"></p>
-            </div>
+            <div><p id="menu-name"></p><p id="menu-tag"></p></div>
           </div>
           <div class="umenu-body">
-            <button class="umenu-btn" onclick="openMisServidores()">
-              🖥️ Ver mis servidores
-            </button>
+            <button class="umenu-btn" onclick="openMisServidores()">🖥️ Ver mis servidores</button>
             <div class="umenu-sep"></div>
-            <button class="umenu-btn danger" onclick="discordLogout()">
-              🚪 Cerrar sesión
-            </button>
+            <button class="umenu-btn danger" onclick="discordLogout()">🚪 Cerrar sesión</button>
           </div>
         </div>
       </div>
@@ -739,36 +649,30 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 <!-- ═══ INICIO ═══ -->
 <section id="inicio" class="active">
 <div class="hero">
-
   <div class="hero-bw">
     <img src="https://i.postimg.cc/hjrPWWLS/Banner_Oficial.jpg" alt="Caatffee Banner">
     <img class="hero-cl hero-cl-l" src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" alt="">
     <img class="hero-cl hero-cl-r" src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" alt="">
     <img class="cat-gif" src="https://i.postimg.cc/TY8DN2qd/Cafeteria_Gif.gif" alt="Caatffee sirviendo">
   </div>
-
   <div class="hero-badge">🐱 El bot de gestión más adorable para tu servidor ☕</div>
   <h1><span class="caat">Caat</span><span class="ffee">ffee</span></h1>
   <p class="hero-desc">Nacimos de la necesidad de simplificar la vida de los dueños de servidores.<br>Con Caatffee, el poder de tu servidor cabe en la palma de tu mano.</p>
-
   <div class="hero-btns">
     <a class="btn bp" href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands" target="_blank">🤖 Añadir el Bot</a>
     <a class="btn bo" href="https://discord.gg/ESPYGjMqYK" target="_blank">💬 Servidor de Soporte</a>
   </div>
-
   <div class="stats">
     <div class="st"><span class="st-n">🆕</span><span class="st-l">Bot Nuevo</span></div>
     <div class="st"><span class="st-n">⚡</span><span class="st-l">Respuesta Rápida</span></div>
     <div class="st"><span class="st-n">🔒</span><span class="st-l">100% Seguro</span></div>
     <div class="st"><span class="st-n">☕</span><span class="st-l">Siempre Activo</span></div>
   </div>
-
   <div class="cloud-sep">
     <img src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" alt="">
     <img src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" alt="">
     <img src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" alt="">
   </div>
-
   <div class="cafe-feat">
     <div class="cafe-img gc">
       <img src="https://i.postimg.cc/TY8DN2qd/Cafeteria_Gif.gif" alt="Caatffee en la cafetería">
@@ -785,9 +689,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
       <p>Sistema avanzado de bans, warns, locks, slowmode y control total del servidor.</p>
     </div>
   </div>
-
   <div class="paw-div"><div class="paw-line"></div><span>🐾</span><span>🐾</span><span>🐾</span><div class="paw-line"></div></div>
-
   <h2 class="sec-t">🌸 ¿Por qué elegir <span>Caatffee</span>? 🌸</h2>
   <p class="sec-s">Todo lo que necesitas para gestionar tu servidor, con la calidez de una cafetería.</p>
   <div class="feat-grid">
@@ -796,7 +698,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
     <div class="gc feat-c"><div class="feat-ico">🎨</div><h3>Totalmente Personalizable</h3><p>Ajusta el comportamiento, el nombre del panel y las funciones según tus necesidades.</p></div>
     <div class="gc feat-c"><div class="feat-ico">🚀</div><h3>Actualizaciones Constantes</h3><p>Nuevas funciones, mejoras y correcciones cada semana para mantenerte siempre al día.</p></div>
   </div>
-
 </div>
 </section>
 
@@ -806,13 +707,11 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   <span class="eyebrow">Apoya el proyecto</span>
   <h2 class="sec-t">🌸 Planes de Donación 🌸</h2>
   <p class="sec-s">Tu apoyo mantiene a Caatffee en línea y en constante mejora.<br>Cada donación es un café que nos ayuda a seguir adelante. ☕</p>
-
   <div style="display:flex;justify-content:center;align-items:center;gap:26px;margin:-8px 0 42px;pointer-events:none;">
     <img src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" style="height:42px;opacity:.24;animation:cloudBob 4s ease-in-out infinite;">
     <img src="https://i.postimg.cc/TY8DN2qd/Cafeteria_Gif.gif" style="height:68px;filter:drop-shadow(0 4px 20px rgba(255,143,171,.52));animation:catBob 3s ease-in-out infinite;">
     <img src="https://i.postimg.cc/634Mc66C/Nube_de_Caatffee.png" style="height:42px;opacity:.24;animation:cloudBob 4s ease-in-out infinite;animation-delay:2s;">
   </div>
-
   <div class="don-grid">
     <div class="gc don-c">
       <img src="https://i.postimg.cc/vBgkfCh6/Donación_Básica_Banner.jpg" class="don-ban" alt="Básica">
@@ -905,12 +804,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
       </div>
     </div>
   </div>
-
-  <!-- COMPARISON TABLE -->
   <div class="paw-div"><div class="paw-line"></div><span>☕</span><span>☕</span><span>☕</span><div class="paw-line"></div></div>
   <h2 class="sec-t" style="margin-bottom:10px">📊 Comparativa de Planes</h2>
   <p class="sec-s" style="margin-bottom:0">¿No sabes cuál elegir? Aquí tienes todo de un vistazo.</p>
-
   <div class="cmp-wrap">
     <table class="cmp-table">
       <thead>
@@ -962,81 +858,15 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   <span class="eyebrow">Preguntas frecuentes</span>
   <h2 class="sec-t">❓ FAQ</h2>
   <p class="sec-s">Las dudas más comunes sobre Caatffee, resueltas en un solo lugar.</p>
-
   <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Caatffee es gratuito? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        ¡Sí! Caatffee es completamente gratuito para todos los servidores. Las donaciones son voluntarias y solo otorgan beneficios adicionales como roles exclusivos, más opciones en el panel y mayor prioridad en soporte — pero nunca bloquean las funciones principales.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Cómo añado el bot a mi servidor? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Haz clic en el botón <strong>"✨ Añadir Bot"</strong> en la parte superior de la página, o entra al <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a> y sigue las instrucciones. Solo necesitas tener permisos de administrador en el servidor donde quieres añadirlo.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿El bot recopila mis mensajes o datos privados? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        No. Caatffee solo guarda los IDs de servidor, canales y usuarios necesarios para funcionar. Nunca almacenamos el contenido de mensajes privados ni datos sensibles. Puedes leer nuestra <a href="#privacidad" onclick="goSec('privacidad')">Política de Privacidad</a> completa para más detalles.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Por qué el bot pide permisos de administrador? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Para que los comandos de gestión (crear canales, banear usuarios, editar roles, etc.) funcionen correctamente, el bot necesita acceso de administrador. Nunca utilizamos esos permisos para nada fuera de lo que tú ordenas mediante comandos.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Cómo funciona el panel por MD? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Con el comando <code style="background:var(--pink-dim);color:var(--pink);padding:2px 8px;border-radius:6px;font-family:monospace;">/panel</code> el bot te envía un menú interactivo directamente a tus mensajes directos. Desde ahí puedes gestionar tu servidor completo sin necesidad de estar en ningún canal.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Las donaciones son reembolsables? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Las donaciones son voluntarias y no reembolsables, tal como se indica en nuestros <a href="#terminos" onclick="goSec('terminos')">Términos de Servicio</a>. Antes de donar te recomendamos revisar bien los beneficios de cada plan.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Qué pasa si el bot no responde a un comando? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Primero verifica que el bot tenga los permisos necesarios en el canal. Si el problema persiste, usa la sección <a href="#report" onclick="goSec('report')">Reportar Error</a> de esta página o únete al <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a> para obtener ayuda directa.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        ¿Cómo elimino mis datos del bot? <span class="faq-arrow">▾</span>
-      </button>
-      <div class="faq-a">
-        Puedes solicitar la eliminación de todos los datos de tu servidor en el <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a>. Si simplemente expulsas al bot de tu servidor, los datos se eliminan automáticamente tras 30 días.
-      </div>
-    </div>
-
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Caatffee es gratuito? <span class="faq-arrow">▾</span></button><div class="faq-a">¡Sí! Caatffee es completamente gratuito para todos los servidores. Las donaciones son voluntarias y solo otorgan beneficios adicionales como roles exclusivos, más opciones en el panel y mayor prioridad en soporte — pero nunca bloquean las funciones principales.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo añado el bot a mi servidor? <span class="faq-arrow">▾</span></button><div class="faq-a">Haz clic en el botón <strong>"✨ Añadir Bot"</strong> en la parte superior de la página, o entra al <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a> y sigue las instrucciones. Solo necesitas tener permisos de administrador en el servidor donde quieres añadirlo.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El bot recopila mis mensajes o datos privados? <span class="faq-arrow">▾</span></button><div class="faq-a">No. Caatffee solo guarda los IDs de servidor, canales y usuarios necesarios para funcionar. Nunca almacenamos el contenido de mensajes privados ni datos sensibles. Puedes leer nuestra <a href="#privacidad" onclick="goSec('privacidad')">Política de Privacidad</a> completa para más detalles.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Por qué el bot pide permisos de administrador? <span class="faq-arrow">▾</span></button><div class="faq-a">Para que los comandos de gestión (crear canales, banear usuarios, editar roles, etc.) funcionen correctamente, el bot necesita acceso de administrador. Nunca utilizamos esos permisos para nada fuera de lo que tú ordenas mediante comandos.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona el panel por MD? <span class="faq-arrow">▾</span></button><div class="faq-a">Con el comando <code style="background:var(--pink-dim);color:var(--pink);padding:2px 8px;border-radius:6px;font-family:monospace;">/panel</code> el bot te envía un menú interactivo directamente a tus mensajes directos. Desde ahí puedes gestionar tu servidor completo sin necesidad de estar en ningún canal.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Las donaciones son reembolsables? <span class="faq-arrow">▾</span></button><div class="faq-a">Las donaciones son voluntarias y no reembolsables, tal como se indica en nuestros <a href="#terminos" onclick="goSec('terminos')">Términos de Servicio</a>. Antes de donar te recomendamos revisar bien los beneficios de cada plan.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si el bot no responde a un comando? <span class="faq-arrow">▾</span></button><div class="faq-a">Primero verifica que el bot tenga los permisos necesarios en el canal. Si el problema persiste, usa la sección <a href="#report" onclick="goSec('report')">Reportar Error</a> de esta página o únete al <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a> para obtener ayuda directa.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo elimino mis datos del bot? <span class="faq-arrow">▾</span></button><div class="faq-a">Puedes solicitar la eliminación de todos los datos de tu servidor en el <a href="https://discord.gg/ESPYGjMqYK" target="_blank">servidor de soporte</a>. Si simplemente expulsas al bot de tu servidor, los datos se eliminan automáticamente tras 30 días.</div></div>
   </div>
 </section>
 
@@ -1120,36 +950,25 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   <span class="eyebrow">El equipo detrás</span>
   <h2 class="sec-t">🌸 Créditos</h2>
   <p class="sec-s">Las personas y plataformas que hacen posible a Caatffee.</p>
-
   <div class="credits-wrap">
-
-    <!-- ELJOSE -->
     <div class="gc credit-card">
       <img class="credit-avatar" src="https://i.postimg.cc/3Nq9f1gQ/Perfil_de_ElJose.jpg" alt="ElJose">
       <div class="credit-role">👑 Creador & Desarrollador</div>
       <div class="credit-name">ElJose</div>
-      <p class="credit-desc">
-        Fundador y desarrollador principal de Caatffee. Diseñó el bot desde cero con la visión de hacer la gestión de servidores algo simple, bonito y accesible para todos.
-      </p>
+      <p class="credit-desc">Fundador y desarrollador principal de Caatffee. Diseñó el bot desde cero con la visión de hacer la gestión de servidores algo simple, bonito y accesible para todos.</p>
       <div class="credit-links">
         <a class="btn bp" href="https://discord.gg/ESPYGjMqYK" target="_blank">💬 Contactar en Discord</a>
         <a class="btn bo" href="https://www.patreon.com/15613390/join" target="_blank">☕ Apoyar en Patreon</a>
       </div>
     </div>
-
-    <!-- DISCORD -->
     <div class="gc discord-card">
       <div class="discord-logo"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" style="width:48px;height:48px;object-fit:contain;"></div>
       <div class="discord-info">
         <h3>Discord</h3>
-        <p>
-          Caatffee está construido sobre la plataforma de Discord, utilizando su API para ofrecer comandos slash, botones interactivos, gestión de roles y mucho más.
-          Sin Discord, Caatffee no sería posible.
-        </p>
+        <p>Caatffee está construido sobre la plataforma de Discord, utilizando su API para ofrecer comandos slash, botones interactivos, gestión de roles y mucho más. Sin Discord, Caatffee no sería posible.</p>
         <a class="btn btn-discord" href="https://discord.com/developers/docs" target="_blank">🔗 Discord Developer Portal</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1241,26 +1060,27 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
     <div class="srv-panel-tabs">
       <button class="srv-tab active" onclick="switchSrvTab('stats',this)">📊 Estadísticas</button>
       <button class="srv-tab" onclick="switchSrvTab('info',this)">ℹ️ Info</button>
-      <button class="srv-tab" onclick="switchSrvTab('message',this)">📨 Enviar Mensaje</button>
+      <button class="srv-tab" onclick="switchSrvTab('message',this)">📨 Mensaje</button>
       <button class="srv-tab" onclick="switchSrvTab('welcome',this)">🌸 Bienvenida</button>
       <button class="srv-tab" onclick="switchSrvTab('goodbye',this)">👋 Despedida</button>
     </div>
+
     <!-- STATS TAB -->
     <div class="srv-tab-content active" id="spt-stats">
       <div class="srv-stats-grid" id="sp-stats-grid"></div>
     </div>
+
     <!-- INFO TAB -->
     <div class="srv-tab-content" id="spt-info">
       <div id="sp-info-rows"></div>
     </div>
+
     <!-- MESSAGE TAB -->
     <div class="srv-tab-content" id="spt-message">
       <div class="srv-msg-form">
         <div>
           <label>Canal de destino</label>
-          <select id="sp-channel-sel">
-            <option value="">— Cargando canales... —</option>
-          </select>
+          <select id="sp-channel-sel"><option value="">— Cargando canales... —</option></select>
         </div>
         <div>
           <label>Título del mensaje <span style="color:var(--muted);font-weight:600;font-size:11px;">(opcional)</span></label>
@@ -1301,12 +1121,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
             <div style="font-size:12px;color:var(--muted);">Se envía cuando alguien se une al servidor</div>
           </div>
         </div>
-
         <div>
           <label>Canal de bienvenida</label>
-          <select id="sp-welcome-channel">
-            <option value="">— Cargando canales... —</option>
-          </select>
+          <select id="sp-welcome-channel"><option value="">— Cargando canales... —</option></select>
         </div>
         <div>
           <label>Título del embed <span style="color:var(--muted);font-weight:600;font-size:11px;">(opcional)</span></label>
@@ -1328,12 +1145,8 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
           </div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button class="srv-msg-send" onclick="saveWelcome('activar')" style="flex:1;min-width:140px;">
-            ✅ Activar bienvenida
-          </button>
-          <button class="srv-msg-send" onclick="saveWelcome('desactivar')" style="flex:1;min-width:140px;background:linear-gradient(135deg,#555,#333);">
-            ❌ Desactivar
-          </button>
+          <button class="srv-msg-send" onclick="saveWelcome('activar')" style="flex:1;min-width:140px;">✅ Activar bienvenida</button>
+          <button class="srv-msg-send" onclick="saveWelcome('desactivar')" style="flex:1;min-width:140px;background:linear-gradient(135deg,#555,#333);">❌ Desactivar</button>
         </div>
         <div id="sp-welcome-status" style="font-size:13px;color:var(--muted);min-height:18px;"></div>
         <p class="srv-msg-note">💡 Variables: <code>{usuario}</code> menciona al nuevo miembro · <code>{servidor}</code> nombre del servidor</p>
@@ -1350,12 +1163,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
             <div style="font-size:12px;color:var(--muted);">Se envía cuando alguien sale del servidor</div>
           </div>
         </div>
-
         <div>
           <label>Canal de despedida</label>
-          <select id="sp-goodbye-channel">
-            <option value="">— Cargando canales... —</option>
-          </select>
+          <select id="sp-goodbye-channel"><option value="">— Cargando canales... —</option></select>
         </div>
         <div>
           <label>Título del embed <span style="color:var(--muted);font-weight:600;font-size:11px;">(opcional)</span></label>
@@ -1363,7 +1173,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
         </div>
         <div>
           <label>Mensaje</label>
-          <textarea id="sp-goodbye-msg" rows="3" placeholder="Hasta luego, {usuario}. ¡Te echaremos de menos en {servidor}! 👋&#10;Usa {usuario} para el nombre y {servidor} para el servidor"></textarea>
+          <textarea id="sp-goodbye-msg" rows="3" placeholder="Hasta luego, {usuario}. ¡Te echaremos de menos en {servidor}! 👋"></textarea>
         </div>
         <div>
           <label>URL de imagen <span style="color:var(--muted);font-weight:600;font-size:11px;">(opcional)</span></label>
@@ -1377,22 +1187,21 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
           </div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button class="srv-msg-send" onclick="saveGoodbye('activar')" style="flex:1;min-width:140px;">
-            ✅ Activar despedida
-          </button>
-          <button class="srv-msg-send" onclick="saveGoodbye('desactivar')" style="flex:1;min-width:140px;background:linear-gradient(135deg,#555,#333);">
-            ❌ Desactivar
-          </button>
+          <button class="srv-msg-send" onclick="saveGoodbye('activar')" style="flex:1;min-width:140px;">✅ Activar despedida</button>
+          <button class="srv-msg-send" onclick="saveGoodbye('desactivar')" style="flex:1;min-width:140px;background:linear-gradient(135deg,#555,#333);">❌ Desactivar</button>
         </div>
         <div id="sp-goodbye-status" style="font-size:13px;color:var(--muted);min-height:18px;"></div>
         <p class="srv-msg-note">💡 Variables: <code>{usuario}</code> nombre del miembro · <code>{servidor}</code> nombre del servidor</p>
       </div>
     </div>
+
   </div>
 </div>
 
 <script>
-/* PARTICLES */
+/* ══════════════════════════════════════
+   PARTICLES
+══════════════════════════════════════ */
 const pc=document.getElementById('pc');
 const sym=['🐾','☕','🌸','🐱'];
 for(let i=0;i<10;i++){const p=document.createElement('div');p.className='p';const s=Math.random()*4+2;p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${Math.random()*24+16}s;animation-delay:${Math.random()*24}s;will-change:transform;`;pc.appendChild(p);}
@@ -1482,12 +1291,12 @@ function submitSugg(){
 /* TOAST */
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 
-/* 3D TILT - throttled */
+/* 3D TILT */
 let tX=0,tY=0,tP=false;
 document.addEventListener('mousemove',e=>{tX=e.clientX;tY=e.clientY;if(tP)return;tP=true;requestAnimationFrame(()=>{document.querySelectorAll('.gc').forEach(c=>{const r=c.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,dx=(tX-cx)/r.width*7,dy=(tY-cy)/r.height*7;c.style.transform=Math.hypot(tX-cx,tY-cy)<350?`perspective(900px) rotateY(${dx}deg) rotateX(${-dy}deg) translateY(-5px)`:'';});tP=false;});},{passive:true});
 
 /* ══════════════════════════════════════
-   DISCORD OAUTH2 LOGIN
+   DISCORD OAUTH2 + BOT API
 ══════════════════════════════════════ */
 const DISCORD_CLIENT_ID = '1475842620063485993';
 const BOT_API_URL       = 'https://scaldic-vannessa-ungained.ngrok-free.dev';
@@ -1496,8 +1305,7 @@ function discordLogin(){
   const redirectUri = encodeURIComponent(location.origin + location.pathname);
   const state = Math.random().toString(36).slice(2);
   sessionStorage.setItem('discord_state', state);
-  const url = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token&scope=identify%20guilds&state=${state}`;
-  window.location.href = url;
+  window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token&scope=identify%20guilds&state=${state}`;
 }
 
 function discordLogout(){
@@ -1511,96 +1319,80 @@ function discordLogout(){
 }
 
 function toggleUserMenu(){
-  const menu = document.getElementById('user-menu');
-  const chevron = document.getElementById('pill-chevron');
-  const open = menu.style.display === 'block';
-  menu.style.display = open ? 'none' : 'block';
-  chevron.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+  const menu=document.getElementById('user-menu');
+  const chevron=document.getElementById('pill-chevron');
+  const open=menu.style.display==='block';
+  menu.style.display=open?'none':'block';
+  chevron.style.transform=open?'rotate(0deg)':'rotate(180deg)';
 }
-
 function closeUserMenu(){
-  const menu = document.getElementById('user-menu');
-  const chevron = document.getElementById('pill-chevron');
-  if(menu) menu.style.display = 'none';
-  if(chevron) chevron.style.transform = 'rotate(0deg)';
+  const menu=document.getElementById('user-menu');
+  const chevron=document.getElementById('pill-chevron');
+  if(menu) menu.style.display='none';
+  if(chevron) chevron.style.transform='rotate(0deg)';
 }
 
 function setUserUI(user){
-  const avatar = user.avatar
-    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`
-    : `https://cdn.discordapp.com/embed/avatars/${Number(user.discriminator || 0) % 5}.png`;
-  const tag = (!user.discriminator || user.discriminator === '0')
-    ? `@${user.username}`
-    : `${user.username}#${user.discriminator}`;
-
-  document.getElementById('user-avatar').src = avatar;
-  document.getElementById('menu-avatar').src = avatar;
-  document.getElementById('user-name-pill').textContent = user.global_name || user.username;
-  document.getElementById('menu-name').textContent = user.global_name || user.username;
-  document.getElementById('menu-tag').textContent = tag;
-
-  document.getElementById('discord-login-btn').style.display = 'none';
-  document.getElementById('user-pill').style.display = 'block';
+  const avatar=user.avatar
+    ?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`
+    :`https://cdn.discordapp.com/embed/avatars/${Number(user.discriminator||0)%5}.png`;
+  const tag=(!user.discriminator||user.discriminator==='0')?`@${user.username}`:`${user.username}#${user.discriminator}`;
+  document.getElementById('user-avatar').src=avatar;
+  document.getElementById('menu-avatar').src=avatar;
+  document.getElementById('user-name-pill').textContent=user.global_name||user.username;
+  document.getElementById('menu-name').textContent=user.global_name||user.username;
+  document.getElementById('menu-tag').textContent=tag;
+  document.getElementById('discord-login-btn').style.display='none';
+  document.getElementById('user-pill').style.display='block';
 }
 
 async function fetchDiscordUser(token){
   try{
-    const res = await fetch('https://discord.com/api/users/@me',{headers:{Authorization:`Bearer ${token}`}});
+    const res=await fetch('https://discord.com/api/users/@me',{headers:{Authorization:`Bearer ${token}`}});
     if(!res.ok) throw new Error('invalid');
     return await res.json();
-  }catch{ return null; }
+  }catch{return null;}
 }
 
 async function fetchDiscordGuilds(token){
   try{
-    const res = await fetch('https://discord.com/api/users/@me/guilds',{headers:{Authorization:`Bearer ${token}`}});
+    const res=await fetch('https://discord.com/api/users/@me/guilds',{headers:{Authorization:`Bearer ${token}`}});
     if(!res.ok) throw new Error('invalid');
     return await res.json();
-  }catch{ return null; }
+  }catch{return null;}
 }
 
-// Cerrar menú al click fuera
 document.addEventListener('click',e=>{
-  const pill = document.getElementById('user-pill');
-  if(pill && !pill.contains(e.target)) closeUserMenu();
+  const pill=document.getElementById('user-pill');
+  if(pill&&!pill.contains(e.target)) closeUserMenu();
 });
 
-// Inicializar
 (async()=>{
   if(location.hash.includes('access_token')){
-    const params = new URLSearchParams(location.hash.slice(1));
-    const token = params.get('access_token');
+    const params=new URLSearchParams(location.hash.slice(1));
+    const token=params.get('access_token');
     history.replaceState(null,'',location.pathname);
     if(token){
-      const user = await fetchDiscordUser(token);
+      const user=await fetchDiscordUser(token);
       if(user){
-        localStorage.setItem('discord_token', token);
-        localStorage.setItem('discord_user', JSON.stringify(user));
+        localStorage.setItem('discord_token',token);
+        localStorage.setItem('discord_user',JSON.stringify(user));
         setUserUI(user);
-        showToast(`¡Bienvenido, ${user.global_name || user.username}! 🎉`);
-        // Fetch guilds in background and cache
-        fetchDiscordGuilds(token).then(guilds=>{
-          if(guilds) localStorage.setItem('discord_guilds', JSON.stringify(guilds));
-        });
+        showToast(`¡Bienvenido, ${user.global_name||user.username}! 🎉`);
+        fetchDiscordGuilds(token).then(guilds=>{if(guilds) localStorage.setItem('discord_guilds',JSON.stringify(guilds));});
       }
     }
     return;
   }
-  const savedToken = localStorage.getItem('discord_token');
-  const savedUser  = localStorage.getItem('discord_user');
-  if(savedToken && savedUser){
+  const savedToken=localStorage.getItem('discord_token');
+  const savedUser=localStorage.getItem('discord_user');
+  if(savedToken&&savedUser){
     setUserUI(JSON.parse(savedUser));
     fetchDiscordUser(savedToken).then(fresh=>{
-      if(!fresh){ discordLogout(); return; }
-      const freshStr = JSON.stringify(fresh);
-      if(freshStr !== savedUser){
-        localStorage.setItem('discord_user', freshStr);
-        setUserUI(fresh);
-      }
-      // Refresh guilds silently
-      fetchDiscordGuilds(savedToken).then(guilds=>{
-        if(guilds) localStorage.setItem('discord_guilds', JSON.stringify(guilds));
-      });
+      if(!fresh){discordLogout();return;}
+      const freshStr=JSON.stringify(fresh);
+      if(freshStr!==savedUser){localStorage.setItem('discord_user',freshStr);setUserUI(fresh);}
+      fetchDiscordGuilds(savedToken).then(guilds=>{if(guilds) localStorage.setItem('discord_guilds',JSON.stringify(guilds));});
     });
   }
 })();
@@ -1608,35 +1400,22 @@ document.addEventListener('click',e=>{
 /* ══════════════════════════════════════
    MIS SERVIDORES
 ══════════════════════════════════════ */
-const ADMIN_PERM = 0x8; // ADMINISTRATOR
-const MANAGE_GUILD_PERM = 0x20; // MANAGE_GUILD
+const ADMIN_PERM=0x8;
+const MANAGE_GUILD_PERM=0x20;
 
 function hasAdminAccess(guild){
   if(guild.owner) return true;
-  const perms = parseInt(guild.permissions);
-  return !isNaN(perms) && ((perms & ADMIN_PERM) !== 0 || (perms & MANAGE_GUILD_PERM) !== 0);
+  const perms=parseInt(guild.permissions);
+  return !isNaN(perms)&&((perms&ADMIN_PERM)!==0||(perms&MANAGE_GUILD_PERM)!==0);
 }
-
 function getGuildIcon(guild){
-  if(guild.icon){
-    const ext = guild.icon.startsWith('a_') ? 'gif' : 'png';
-    return `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.${ext}?size=128`;
-  }
+  if(guild.icon){const ext=guild.icon.startsWith('a_')?'gif':'png';return `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.${ext}?size=128`;}
   return null;
 }
+function guildInitials(name){return name.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();}
+function approxMembers(guild){return guild.approximate_member_count?guild.approximate_member_count.toLocaleString():'N/D';}
 
-function guildInitials(name){
-  return name.split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
-}
-
-// Approximate member count from guild data (Discord doesn't give exact via OAuth)
-function approxMembers(guild){
-  return guild.approximate_member_count
-    ? guild.approximate_member_count.toLocaleString()
-    : 'N/D';
-}
-
-let currentGuildData = null;
+let currentGuildData=null;
 
 function openMisServidores(){
   closeUserMenu();
@@ -1645,11 +1424,10 @@ function openMisServidores(){
 }
 
 async function renderServidores(){
-  const container = document.getElementById('srv-content');
-  const token = localStorage.getItem('discord_token');
-
+  const container=document.getElementById('srv-content');
+  const token=localStorage.getItem('discord_token');
   if(!token){
-    container.innerHTML = `
+    container.innerHTML=`
       <div class="srv-login-required">
         <div class="srv-lock">🔐</div>
         <h3>Inicia sesión para ver tus servidores</h3>
@@ -1661,42 +1439,23 @@ async function renderServidores(){
       </div>`;
     return;
   }
-
-  // Show loading
-  container.innerHTML = `<div class="srv-loading"><div class="srv-spinner"></div><span>Cargando tus servidores...</span></div>`;
-
-  // Try cached first, then fetch fresh
-  let guilds = null;
-  const cached = localStorage.getItem('discord_guilds');
-  if(cached){
-    try{ guilds = JSON.parse(cached); }catch{}
-  }
-
+  container.innerHTML=`<div class="srv-loading"><div class="srv-spinner"></div><span>Cargando tus servidores...</span></div>`;
+  let guilds=null;
+  const cached=localStorage.getItem('discord_guilds');
+  if(cached){try{guilds=JSON.parse(cached);}catch{}}
   if(!guilds){
-    guilds = await fetchDiscordGuilds(token);
-    if(!guilds){
-      container.innerHTML = `<div class="srv-empty"><div class="srv-empty-ico">😕</div><h3>No se pudieron cargar los servidores</h3><p>Hubo un problema al obtener tus servidores. Tu sesión puede haber expirado.<br><a href="#" onclick="discordLogout();discordLogin();" style="color:var(--pink);">Volver a iniciar sesión</a></p></div>`;
-      return;
-    }
-    localStorage.setItem('discord_guilds', JSON.stringify(guilds));
+    guilds=await fetchDiscordGuilds(token);
+    if(!guilds){container.innerHTML=`<div class="srv-empty"><div class="srv-empty-ico">😕</div><h3>No se pudieron cargar los servidores</h3><p>Hubo un problema al obtener tus servidores. Tu sesión puede haber expirado.<br><a href="#" onclick="discordLogout();discordLogin();" style="color:var(--pink);">Volver a iniciar sesión</a></p></div>`;return;}
+    localStorage.setItem('discord_guilds',JSON.stringify(guilds));
   } else {
-    // Refresh in background
-    fetchDiscordGuilds(token).then(fresh=>{
-      if(fresh){ localStorage.setItem('discord_guilds', JSON.stringify(fresh)); }
-    });
+    fetchDiscordGuilds(token).then(fresh=>{if(fresh) localStorage.setItem('discord_guilds',JSON.stringify(fresh));});
   }
-
-  // Filter: only servers where user is owner or has admin/manage permissions
-  const adminGuilds = guilds.filter(hasAdminAccess);
-
-  if(adminGuilds.length === 0){
-    container.innerHTML = `<div class="srv-empty"><div class="srv-empty-ico">🏚️</div><h3>Sin servidores con permisos</h3><p>No tienes permisos de administrador en ningún servidor donde esté Caatffee.<br>¿Ya añadiste el bot? <a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands" target="_blank" style="color:var(--pink);">Añádelo aquí →</a></p></div>`;
+  const adminGuilds=guilds.filter(hasAdminAccess);
+  if(adminGuilds.length===0){
+    container.innerHTML=`<div class="srv-empty"><div class="srv-empty-ico">🏚️</div><h3>Sin servidores con permisos</h3><p>No tienes permisos de administrador en ningún servidor donde esté Caatffee.<br>¿Ya añadiste el bot? <a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands" target="_blank" style="color:var(--pink);">Añádelo aquí →</a></p></div>`;
     return;
   }
-
-  // Render
-  const user = JSON.parse(localStorage.getItem('discord_user') || '{}');
-  container.innerHTML = `
+  container.innerHTML=`
     <div class="srv-header">
       <div class="srv-header-left">
         <h2>Tus servidores como admin</h2>
@@ -1705,27 +1464,25 @@ async function renderServidores(){
       <span class="srv-count-badge">🖥️ ${adminGuilds.length} servidor${adminGuilds.length!==1?'es':''}</span>
     </div>
     <div class="srv-grid" id="srv-grid"></div>`;
-
-  const grid = document.getElementById('srv-grid');
-  adminGuilds.forEach(guild => {
-    const iconUrl = getGuildIcon(guild);
-    const initials = guildInitials(guild.name);
-    const members = approxMembers(guild);
-
-    const card = document.createElement('div');
-    card.className = 'gc srv-card';
-    card.innerHTML = `
+  const grid=document.getElementById('srv-grid');
+  adminGuilds.forEach(guild=>{
+    const iconUrl=getGuildIcon(guild);
+    const initials=guildInitials(guild.name);
+    const members=approxMembers(guild);
+    const card=document.createElement('div');
+    card.className='gc srv-card';
+    card.innerHTML=`
       <div class="srv-card-top">
         ${iconUrl
-          ? `<img class="srv-card-icon" src="${iconUrl}" alt="${guild.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-card-icon-placeholder" style="display:none;">${initials}</div>`
-          : `<div class="srv-card-icon-placeholder">${initials}</div>`
+          ?`<img class="srv-card-icon" src="${iconUrl}" alt="${guild.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-card-icon-placeholder" style="display:none;">${initials}</div>`
+          :`<div class="srv-card-icon-placeholder">${initials}</div>`
         }
       </div>
       <div class="srv-card-body">
         <div class="srv-card-name" title="${guild.name}">${guild.name}</div>
         <div class="srv-card-meta">
           <span class="srv-card-members">${members} miembros</span>
-          ${guild.owner ? '<span class="srv-badge-owner">👑 Dueño</span>' : '<span class="srv-badge-admin">🛡️ Admin</span>'}
+          ${guild.owner?'<span class="srv-badge-owner">👑 Dueño</span>':'<span class="srv-badge-admin">🛡️ Admin</span>'}
         </div>
         <div class="srv-card-actions">
           <button class="srv-btn srv-btn-stats" onclick="openSrvPanel('${guild.id}','${guild.name.replace(/'/g,"\\'")}','${iconUrl||''}','${initials}',${guild.owner?'true':'false'},'${members}')">📊 Estadísticas</button>
@@ -1737,209 +1494,90 @@ async function renderServidores(){
 }
 
 /* ── SERVER DETAIL PANEL ── */
-function openSrvPanel(id, name, iconUrl, initials, isOwner, members, tab){
-  currentGuildData = {id, name, iconUrl, initials, isOwner, members};
+function openSrvPanel(id,name,iconUrl,initials,isOwner,members,tab){
+  currentGuildData={id,name,iconUrl,initials,isOwner,members};
+  const iconWrap=document.getElementById('sp-icon-wrap');
+  iconWrap.innerHTML=iconUrl
+    ?`<img class="srv-panel-icon" src="${iconUrl}" alt="${name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-panel-icon-ph" style="display:none;">${initials}</div>`
+    :`<div class="srv-panel-icon-ph">${initials}</div>`;
+  document.getElementById('sp-title').textContent=name;
 
-  // Icon
-  const iconWrap = document.getElementById('sp-icon-wrap');
-  if(iconUrl){
-    iconWrap.innerHTML = `<img class="srv-panel-icon" src="${iconUrl}" alt="${name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="srv-panel-icon-ph" style="display:none;">${initials}</div>`;
-  } else {
-    iconWrap.innerHTML = `<div class="srv-panel-icon-ph">${initials}</div>`;
-  }
-  document.getElementById('sp-title').textContent = name;
-
-  // Stats tab
-  const permsLabel = isOwner ? '👑 Dueño' : '🛡️ Administrador';
-  const statsHtml = `
+  const permsLabel=isOwner?'👑 Dueño':'🛡️ Administrador';
+  document.getElementById('sp-stats-grid').innerHTML=`
     <div class="srv-stat-card"><span class="srv-stat-num">${members}</span><span class="srv-stat-lbl">👥 Miembros</span></div>
-    <div class="srv-stat-card"><span class="srv-stat-num" style="color:var(--gold);">${isOwner ? '1' : '0'}</span><span class="srv-stat-lbl">👑 Owner</span></div>
+    <div class="srv-stat-card"><span class="srv-stat-num" style="color:var(--gold);">${isOwner?'1':'0'}</span><span class="srv-stat-lbl">👑 Owner</span></div>
     <div class="srv-stat-card"><span class="srv-stat-num" style="color:#7fffc4;">☕</span><span class="srv-stat-lbl">Caatffee</span></div>
     <div class="srv-stat-card"><span class="srv-stat-num" style="font-size:18px;">${permsLabel}</span><span class="srv-stat-lbl">Tu rol</span></div>`;
-  document.getElementById('sp-stats-grid').innerHTML = statsHtml;
 
-  // Info tab
-  const infoHtml = `
+  document.getElementById('sp-info-rows').innerHTML=`
     <div class="srv-info-row"><span class="srv-info-label">🏷️ Nombre</span><span class="srv-info-val">${name}</span></div>
     <div class="srv-info-row"><span class="srv-info-label">🆔 ID del servidor</span><span class="srv-info-val" style="font-family:monospace;font-size:13px;">${id}</span></div>
     <div class="srv-info-row"><span class="srv-info-label">👥 Miembros</span><span class="srv-info-val">${members}</span></div>
     <div class="srv-info-row"><span class="srv-info-label">🔑 Tu acceso</span><span class="srv-info-val">${permsLabel}</span></div>
     <div class="srv-info-row"><span class="srv-info-label">🤖 Añadir bot</span><span class="srv-info-val"><a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands&guild_id=${id}" target="_blank" style="color:var(--pink);font-weight:800;">Añadir Caatffee →</a></span></div>`;
-  document.getElementById('sp-info-rows').innerHTML = infoHtml;
 
-  // Reset message form
-  document.getElementById('sp-msg-title').value = '';
-  document.getElementById('sp-msg-body').value = '';
-  document.getElementById('sp-msg-color').value = '#ffb6c1';
+  // Reset message tab
+  document.getElementById('sp-msg-title').value='';
+  document.getElementById('sp-msg-body').value='';
+  document.getElementById('sp-msg-color').value='#ffb6c1';
   updateMsgPreview();
-  // Cargar canales reales del servidor
+
+  // Load channels and saved configs
   loadChannels(id);
   loadWelcomeConfig(id);
   loadGoodbyeConfig(id);
 
-  // Switch to requested tab
-  switchSrvTab(tab || 'stats', document.querySelector(`.srv-tab${tab ? '' : '.active'}`));
-  if(tab){
-    document.querySelectorAll('.srv-tab').forEach(t=>{
-      t.classList.toggle('active', t.getAttribute('onclick').includes(`'${tab}'`));
-    });
-  }
-
-  document.getElementById('srv-panel-overlay').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+  // Switch tab
+  switchSrvTab(tab||'stats');
+  document.getElementById('srv-panel-overlay').style.display='flex';
+  document.body.style.overflow='hidden';
 }
 
-function closeSrvPanel(e, force){
-  if(force || !e || e.target === document.getElementById('srv-panel-overlay')){
-    document.getElementById('srv-panel-overlay').style.display = 'none';
-    document.body.style.overflow = '';
+function closeSrvPanel(e,force){
+  if(force||!e||e.target===document.getElementById('srv-panel-overlay')){
+    document.getElementById('srv-panel-overlay').style.display='none';
+    document.body.style.overflow='';
   }
 }
 
-function switchSrvTab(tabId, btn){
+function switchSrvTab(tabId){
   document.querySelectorAll('.srv-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.srv-tab-content').forEach(t=>t.classList.remove('active'));
-  document.getElementById('spt-'+tabId).classList.add('active');
-  // Find and activate the button
+  const content=document.getElementById('spt-'+tabId);
+  if(content) content.classList.add('active');
   document.querySelectorAll('.srv-tab').forEach(t=>{
-    if(t.getAttribute('onclick') && t.getAttribute('onclick').includes("'"+tabId+"'")) t.classList.add('active');
+    if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes(`'${tabId}'`)) t.classList.add('active');
   });
 }
 
 function updateMsgPreview(){
-  const title = document.getElementById('sp-msg-title').value.trim();
-  const body = document.getElementById('sp-msg-body').value.trim();
-  const color = document.getElementById('sp-msg-color').value;
-  const preview = document.getElementById('sp-msg-preview');
-  preview.style.borderLeftColor = color;
-  if(!title && !body){
-    preview.innerHTML = '<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';
-    return;
-  }
-  let html = '';
-  if(title) html += `<em>${escHtml(title)}</em>\n`;
-  if(body) html += escHtml(body);
-  preview.innerHTML = html || '<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';
+  const title=document.getElementById('sp-msg-title').value.trim();
+  const body=document.getElementById('sp-msg-body').value.trim();
+  const color=document.getElementById('sp-msg-color').value;
+  const preview=document.getElementById('sp-msg-preview');
+  preview.style.borderLeftColor=color;
+  if(!title&&!body){preview.innerHTML='<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';return;}
+  let html='';
+  if(title) html+=`<em>${escHtml(title)}</em>\n`;
+  if(body) html+=escHtml(body);
+  preview.innerHTML=html||'<span style="color:var(--muted);font-style:italic;">Tu mensaje aparecerá aquí...</span>';
 }
 
-function escHtml(s){
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-const BOT_API_URL = 'https://scaldic-vannessa-ungained.ngrok-free.dev';
-
+/* ── loadChannels — puebla los 3 selects a la vez ── */
 async function loadChannels(guildId){
-  const sel = document.getElementById('sp-channel-sel');
-  sel.innerHTML = '<option value="">Cargando canales...</option>';
-  sel.disabled = true;
-  const token = localStorage.getItem('discord_token');
-  if(!token){ sel.innerHTML = '<option value="">Inicia sesión primero</option>'; return; }
-  try {
-    const res = await fetch(`${BOT_API_URL}/api/guild/${guildId}/channels`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'ngrok-skip-browser-warning': '1'
-      }
-    });
-    const data = await res.json();
-    if(!res.ok) throw new Error(data.error || 'Error cargando canales');
-    if(!data.channels || data.channels.length === 0){
-      sel.innerHTML = '<option value="">Sin canales disponibles</option>';
-      sel.disabled = false;
-      return;
-    }
-    // Agrupar por categoría
-    const byCategory = {};
-    data.channels.forEach(ch => {
-      const cat = ch.category || 'Sin categoría';
-      if(!byCategory[cat]) byCategory[cat] = [];
-      byCategory[cat].push(ch);
-    });
-    sel.innerHTML = '<option value="">— Selecciona un canal —</option>';
-    Object.entries(byCategory).forEach(([cat, channels]) => {
-      const group = document.createElement('optgroup');
-      group.label = cat;
-      channels.forEach(ch => {
-        const opt = document.createElement('option');
-        opt.value = ch.id;
-        opt.textContent = `# ${ch.name}`;
-        group.appendChild(opt);
-      });
-      sel.appendChild(group);
-    });
-    sel.disabled = false;
-  } catch(e) {
-    sel.innerHTML = `<option value="">⚠️ ${e.message}</option>`;
-    sel.disabled = false;
-    showToast('⚠️ ' + e.message);
-  }
-}
-
-async function sendServerMessage(){
-  const channelId = document.getElementById('sp-channel-sel').value;
-  const body    = document.getElementById('sp-msg-body').value.trim();
-  const title   = document.getElementById('sp-msg-title').value.trim();
-  const color   = document.getElementById('sp-msg-color').value;
-  if(!channelId) return showToast('⚠️ Selecciona un canal de destino.');
-  if(!body)      return showToast('⚠️ Escribe un mensaje antes de enviar.');
-
-  const token = localStorage.getItem('discord_token');
-  if(!token) return showToast('⚠️ Inicia sesión primero.');
-
-  const btn = document.getElementById('sp-send-btn');
-  btn.disabled = true;
-  btn.innerHTML = `<div class="srv-spinner" style="width:18px;height:18px;border-width:2px;border-top-color:#fff;margin:0;"></div> Enviando...`;
-
-  try {
-    const res = await fetch(`${BOT_API_URL}/api/send-message`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        'ngrok-skip-browser-warning': '1'
-      },
-      body: JSON.stringify({
-        guildId:   currentGuildData.id,
-        channelId: channelId,
-        title:     title || undefined,
-        message:   body,
-        color:     color
-      })
-    });
-    const data = await res.json();
-    if(!res.ok) throw new Error(data.error || 'Error al enviar');
-    showToast(`✅ Mensaje enviado a #${data.channel} en ${data.guild}`);
-    document.getElementById('sp-msg-body').value = '';
-    document.getElementById('sp-msg-title').value = '';
-    updateMsgPreview();
-  } catch(e) {
-    showToast('❌ ' + e.message);
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
-  }
-}
-
-
-// ── Cargar canales en todos los selects ───────────────────────
-async function loadChannels(guildId){
-  const token = localStorage.getItem('discord_token');
+  const token=localStorage.getItem('discord_token');
   if(!token) return;
-  const selectors = ['sp-channel-sel','sp-welcome-channel','sp-goodbye-channel'];
-  for(const selId of selectors){
-    const sel = document.getElementById(selId);
-    if(sel) sel.innerHTML = '<option value="">— Cargando canales... —</option>';
-  }
+  const selIds=['sp-channel-sel','sp-welcome-channel','sp-goodbye-channel'];
+  selIds.forEach(id=>{const s=document.getElementById(id);if(s) s.innerHTML='<option value="">— Cargando canales... —</option>';});
   try{
-    const res = await fetch(`${BOT_API_URL}/api/guild/${guildId}/channels`,{
+    const res=await fetch(`${BOT_API_URL}/api/guild/${guildId}/channels`,{
       headers:{'Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'}
     });
-    const data = await res.json();
-    if(!res.ok || !data.channels){
-      for(const selId of selectors){
-        const sel = document.getElementById(selId);
-        if(sel) sel.innerHTML=`<option value="">— ${data.error||'Error'} —</option>`;
-      }
+    const data=await res.json();
+    if(!res.ok||!data.channels){
+      selIds.forEach(id=>{const s=document.getElementById(id);if(s) s.innerHTML=`<option value="">— ${data.error||'Error'} —</option>`;});
       return;
     }
     const byCategory={};
@@ -1948,9 +1586,9 @@ async function loadChannels(guildId){
       if(!byCategory[cat]) byCategory[cat]=[];
       byCategory[cat].push(ch);
     }
-    for(const selId of selectors){
-      const sel=document.getElementById(selId);
-      if(!sel) continue;
+    selIds.forEach(id=>{
+      const sel=document.getElementById(id);
+      if(!sel) return;
       sel.innerHTML='<option value="">— Selecciona un canal —</option>';
       for(const [cat,channels] of Object.entries(byCategory)){
         const g=document.createElement('optgroup');
@@ -1963,23 +1601,51 @@ async function loadChannels(guildId){
         }
         sel.appendChild(g);
       }
-    }
+    });
   }catch(e){
-    for(const selId of selectors){
-      const sel=document.getElementById(selId);
-      if(sel) sel.innerHTML='<option value="">— Bot no disponible —</option>';
-    }
+    selIds.forEach(id=>{const s=document.getElementById(id);if(s) s.innerHTML='<option value="">— Bot no disponible —</option>';});
   }
 }
 
-// ── Cargar config de bienvenida guardada ───────────────────────
+/* ── sendServerMessage ── */
+async function sendServerMessage(){
+  const channelId=document.getElementById('sp-channel-sel').value;
+  const body=document.getElementById('sp-msg-body').value.trim();
+  const title=document.getElementById('sp-msg-title').value.trim();
+  const color=document.getElementById('sp-msg-color').value;
+  if(!channelId) return showToast('⚠️ Selecciona un canal de destino.');
+  if(!body) return showToast('⚠️ Escribe un mensaje antes de enviar.');
+  const token=localStorage.getItem('discord_token');
+  if(!token) return showToast('⚠️ Inicia sesión primero.');
+  const btn=document.getElementById('sp-send-btn');
+  btn.disabled=true;
+  btn.innerHTML=`<div class="srv-spinner" style="width:18px;height:18px;border-width:2px;border-top-color:#fff;margin:0;"></div> Enviando...`;
+  try{
+    const res=await fetch(`${BOT_API_URL}/api/send-message`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},
+      body:JSON.stringify({guildId:currentGuildData.id,channelId,title:title||undefined,message:body,color})
+    });
+    const data=await res.json();
+    if(!res.ok) throw new Error(data.error||'Error al enviar');
+    showToast(`✅ Mensaje enviado a #${data.channel} en ${data.guild}`);
+    document.getElementById('sp-msg-body').value='';
+    document.getElementById('sp-msg-title').value='';
+    updateMsgPreview();
+  }catch(e){
+    showToast('❌ '+e.message);
+  }finally{
+    btn.disabled=false;
+    btn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
+  }
+}
+
+/* ── loadWelcomeConfig ── */
 async function loadWelcomeConfig(guildId){
   const token=localStorage.getItem('discord_token');
   if(!token) return;
   try{
-    const res=await fetch(`${BOT_API_URL}/api/guild/${guildId}/welcome`,{
-      headers:{'Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'}
-    });
+    const res=await fetch(`${BOT_API_URL}/api/guild/${guildId}/welcome`,{headers:{'Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'}});
     const data=await res.json();
     if(!res.ok||!data.config) return;
     const c=data.config;
@@ -1991,23 +1657,18 @@ async function loadWelcomeConfig(guildId){
     if(c.color)   document.getElementById('sp-welcome-color').value=c.color;
     if(c.canalId){
       const sel=document.getElementById('sp-welcome-channel');
-      const t=setInterval(()=>{
-        const o=sel.querySelector(`option[value="${c.canalId}"]`);
-        if(o){sel.value=c.canalId;clearInterval(t);}
-      },300);
+      const t=setInterval(()=>{const o=sel.querySelector(`option[value="${c.canalId}"]`);if(o){sel.value=c.canalId;clearInterval(t);}},300);
       setTimeout(()=>clearInterval(t),5000);
     }
   }catch(e){}
 }
 
-// ── Cargar config de despedida guardada ───────────────────────
+/* ── loadGoodbyeConfig ── */
 async function loadGoodbyeConfig(guildId){
   const token=localStorage.getItem('discord_token');
   if(!token) return;
   try{
-    const res=await fetch(`${BOT_API_URL}/api/guild/${guildId}/goodbye`,{
-      headers:{'Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'}
-    });
+    const res=await fetch(`${BOT_API_URL}/api/guild/${guildId}/goodbye`,{headers:{'Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'}});
     const data=await res.json();
     if(!res.ok||!data.config) return;
     const c=data.config;
@@ -2019,16 +1680,13 @@ async function loadGoodbyeConfig(guildId){
     if(c.color)   document.getElementById('sp-goodbye-color').value=c.color;
     if(c.canalId){
       const sel=document.getElementById('sp-goodbye-channel');
-      const t=setInterval(()=>{
-        const o=sel.querySelector(`option[value="${c.canalId}"]`);
-        if(o){sel.value=c.canalId;clearInterval(t);}
-      },300);
+      const t=setInterval(()=>{const o=sel.querySelector(`option[value="${c.canalId}"]`);if(o){sel.value=c.canalId;clearInterval(t);}},300);
       setTimeout(()=>clearInterval(t),5000);
     }
   }catch(e){}
 }
 
-// ── Guardar bienvenida ─────────────────────────────────────────
+/* ── saveWelcome ── */
 async function saveWelcome(accion){
   const token=localStorage.getItem('discord_token');
   if(!token) return showToast('⚠️ Debes iniciar sesión primero.');
@@ -2036,11 +1694,7 @@ async function saveWelcome(accion){
   if(accion==='desactivar'){
     if(status) status.textContent='⏳ Desactivando...';
     try{
-      const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/welcome`,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},
-        body:JSON.stringify({accion:'desactivar'})
-      });
+      const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/welcome`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},body:JSON.stringify({accion:'desactivar'})});
       const data=await res.json();
       if(res.ok){showToast('✅ Bienvenida desactivada');if(status) status.textContent='❌ Bienvenida desactivada';}
       else{showToast(`❌ ${data.error||'Error'}`);if(status) status.textContent='';}
@@ -2048,17 +1702,19 @@ async function saveWelcome(accion){
     return;
   }
   const channelId=document.getElementById('sp-welcome-channel').value;
-  const titulo=document.getElementById('sp-welcome-title').value.trim()||null;
-  const mensaje=document.getElementById('sp-welcome-msg').value.trim()||null;
-  const imagen=document.getElementById('sp-welcome-img').value.trim()||null;
-  const color=document.getElementById('sp-welcome-color').value||'#ffb6c1';
   if(!channelId) return showToast('⚠️ Selecciona un canal para la bienvenida.');
   if(status) status.textContent='⏳ Guardando...';
   try{
     const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/welcome`,{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},
-      body:JSON.stringify({accion:'activar',channelId,titulo,mensaje,imagen,color})
+      body:JSON.stringify({
+        accion:'activar',channelId,
+        titulo:document.getElementById('sp-welcome-title').value.trim()||null,
+        mensaje:document.getElementById('sp-welcome-msg').value.trim()||null,
+        imagen:document.getElementById('sp-welcome-img').value.trim()||null,
+        color:document.getElementById('sp-welcome-color').value||'#ffb6c1'
+      })
     });
     const data=await res.json();
     if(res.ok){showToast('✅ Bienvenida configurada');if(status) status.textContent='✅ Bienvenida activa';}
@@ -2066,7 +1722,7 @@ async function saveWelcome(accion){
   }catch(e){showToast('❌ No se pudo conectar con el bot.');if(status) status.textContent='';}
 }
 
-// ── Guardar despedida ──────────────────────────────────────────
+/* ── saveGoodbye ── */
 async function saveGoodbye(accion){
   const token=localStorage.getItem('discord_token');
   if(!token) return showToast('⚠️ Debes iniciar sesión primero.');
@@ -2074,11 +1730,7 @@ async function saveGoodbye(accion){
   if(accion==='desactivar'){
     if(status) status.textContent='⏳ Desactivando...';
     try{
-      const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/goodbye`,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},
-        body:JSON.stringify({accion:'desactivar'})
-      });
+      const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/goodbye`,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},body:JSON.stringify({accion:'desactivar'})});
       const data=await res.json();
       if(res.ok){showToast('✅ Despedida desactivada');if(status) status.textContent='❌ Despedida desactivada';}
       else{showToast(`❌ ${data.error||'Error'}`);if(status) status.textContent='';}
@@ -2086,17 +1738,19 @@ async function saveGoodbye(accion){
     return;
   }
   const channelId=document.getElementById('sp-goodbye-channel').value;
-  const titulo=document.getElementById('sp-goodbye-title').value.trim()||null;
-  const mensaje=document.getElementById('sp-goodbye-msg').value.trim()||null;
-  const imagen=document.getElementById('sp-goodbye-img').value.trim()||null;
-  const color=document.getElementById('sp-goodbye-color').value||'#9b8ea8';
   if(!channelId) return showToast('⚠️ Selecciona un canal para la despedida.');
   if(status) status.textContent='⏳ Guardando...';
   try{
     const res=await fetch(`${BOT_API_URL}/api/guild/${currentGuildData.id}/goodbye`,{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`,'ngrok-skip-browser-warning':'1'},
-      body:JSON.stringify({accion:'activar',channelId,titulo,mensaje,imagen,color})
+      body:JSON.stringify({
+        accion:'activar',channelId,
+        titulo:document.getElementById('sp-goodbye-title').value.trim()||null,
+        mensaje:document.getElementById('sp-goodbye-msg').value.trim()||null,
+        imagen:document.getElementById('sp-goodbye-img').value.trim()||null,
+        color:document.getElementById('sp-goodbye-color').value||'#9b8ea8'
+      })
     });
     const data=await res.json();
     if(res.ok){showToast('✅ Despedida configurada');if(status) status.textContent='✅ Despedida activa';}
@@ -2104,10 +1758,8 @@ async function saveGoodbye(accion){
   }catch(e){showToast('❌ No se pudo conectar con el bot.');if(status) status.textContent='';}
 }
 
-// Close panel on Escape key
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closeSrvPanel(null, true);
-});
+// Close panel on Escape
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeSrvPanel(null,true);});
 </script>
 </body>
 </html>
