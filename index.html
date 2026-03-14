@@ -120,6 +120,32 @@ nav a.active{color:var(--pink);}
 .nav-cta::after{display:none!important;}
 
 /* Dark/Light toggle */
+
+/* ══ NAV MORE DROPDOWN ══ */
+.nav-more{position:relative;}
+.nav-more-btn{
+  padding:6px 13px;color:var(--muted);background:none;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:13px;
+  border:none;border-radius:50px;cursor:pointer;
+  transition:color .22s,background .22s;
+}
+.nav-more-btn:hover{color:var(--text);background:var(--pink-dim);}
+.nav-more-menu{
+  display:none;position:absolute;top:calc(100% + 8px);left:50%;
+  transform:translateX(-50%);min-width:200px;
+  background:var(--glass);backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);border-radius:16px;
+  overflow:hidden;z-index:2000;animation:sIn .2s ease;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+.nav-more-menu.open{display:block;}
+.nav-more-menu a{
+  display:block;padding:10px 18px;font-size:13px;font-weight:700;
+  color:var(--muted);text-decoration:none;transition:background .2s,color .2s;
+  border-bottom:1px solid var(--glass-border);
+}
+.nav-more-menu a:last-child{border-bottom:none;}
+.nav-more-menu a:hover{background:var(--pink-dim);color:var(--pink);}
 #theme-toggle{
   margin-left:10px;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--glass-border);
   background:var(--pink-dim);color:var(--text);font-size:18px;
@@ -677,14 +703,19 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
     <a href="#inicio"     onclick="goSec('inicio')"     class="active">Inicio</a>
     <a href="#Donaciones" onclick="goSec('Donaciones')">Donaciones</a>
     <a href="#Updates"    onclick="goSec('Updates')">Updates</a>
-    <a href="#faq"        onclick="goSec('faq')">FAQ</a>
-    <a href="#terminos"   onclick="goSec('terminos')">Términos</a>
-    <a href="#privacidad" onclick="goSec('privacidad')">Privacidad</a>
     <a href="#comandos"   onclick="goSec('comandos')">Comandos</a>
-    <a href="#creditos"   onclick="goSec('creditos')">Créditos</a>
-    <a href="#report"     onclick="goSec('report')">Reportar Error</a>
-    <a href="#comments"   onclick="goSec('comments')">Sugerencias</a>
-    <a href="https://caatffee.github.io/Caatffee-docs/" target="_blank">📚 Recursos</a>
+    <a href="#faq"        onclick="goSec('faq')">FAQ</a>
+    <div class="nav-more" id="nav-more-wrap">
+      <button class="nav-more-btn" onclick="toggleNavMore(event)">Más ▾</button>
+      <div class="nav-more-menu" id="nav-more-menu">
+        <a href="#terminos"   onclick="goSec('terminos');closeNavMore()">📋 Términos</a>
+        <a href="#privacidad" onclick="goSec('privacidad');closeNavMore()">🔒 Privacidad</a>
+        <a href="#creditos"   onclick="goSec('creditos');closeNavMore()">🌸 Créditos</a>
+        <a href="#report"     onclick="goSec('report');closeNavMore()">🐛 Reportar Error</a>
+        <a href="#comments"   onclick="goSec('comments');closeNavMore()">💡 Sugerencias</a>
+        <a href="https://caatffee.github.io/Caatffee-docs/" target="_blank" onclick="closeNavMore()">📚 Recursos / Wiki</a>
+      </div>
+    </div>
     <a href="https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot%20applications.commands" target="_blank" class="nav-cta">✨ Añadir Bot</a>
     <button id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
   </nav>
@@ -1214,7 +1245,6 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
       <a href="#faq"        onclick="goSec('faq')">❓ FAQ</a>
       <a href="#comandos"   onclick="goSec('comandos')">🤖 Comandos</a>
       <a href="#creditos"   onclick="goSec('creditos')">🌸 Créditos</a>
-      <a href="https://caatffee.github.io/Caatffee-docs/" target="_blank">📚 Recursos / Wiki</a>
     </div>
     <div class="foot-col">
       <h4>Legal & Soporte</h4>
@@ -1823,6 +1853,16 @@ async function sendServerMessage(){
     btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Enviar mensaje con Caatffee`;
   }
 }
+
+/* NAV MORE */
+function toggleNavMore(e){
+  e.stopPropagation();
+  document.getElementById('nav-more-menu').classList.toggle('open');
+}
+function closeNavMore(){
+  document.getElementById('nav-more-menu').classList.remove('open');
+}
+document.addEventListener('click',()=>closeNavMore());
 
 // Close panel on Escape key
 document.addEventListener('keydown', e => {
