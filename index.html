@@ -1061,42 +1061,20 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
   <span class="eyebrow">¿Algo no funciona?</span>
   <h2 class="sec-t">🐛 Reportar Error</h2>
   <div class="form-sec">
-    <!-- Formulario de Reporte -->
     <div id="rf">
-      <div class="fg">
-        <label>Tipo de error</label>
+      <div class="fg"><label>Tipo</label>
         <select id="et" name="tipo_error">
-          <option value="">— Selecciona una categoría —</option>
+          <option value="">— Selecciona —</option>
           <option>Comando no funciona</option>
           <option>Bot no responde</option>
-          <option>Error en el panel</option>
-          <option>Problema de permisos</option>
-          <option>Error visual / texto incorrecto</option>
-          <option>Otro</option>
         </select>
       </div>
-      <div class="fg">
-        <label>Comando afectado (si aplica)</label>
-        <input type="text" id="ec" name="comando" placeholder="Ej: /ban, /panel...">
-      </div>
-      <div class="fg">
-        <label>Descripción del problema</label>
-        <textarea id="ed" name="descripcion" rows="5" placeholder="Describe con detalle qué pasó..."></textarea>
-      </div>
-      <div class="fg">
-        <label>ID de tu servidor (opcional)</label>
-        <input type="text" id="es" name="server_id" placeholder="Ej: 123456789012345678">
-        <p class="fn">Puedes encontrar tu ID de servidor en Configuración del Servidor › Widget.</p>
-      </div>
+      <div class="fg"><label>Comando</label><input type="text" id="ec" name="comando"></div>
+      <div class="fg"><label>Descripción</label><textarea id="ed" name="descripcion" rows="5"></textarea></div>
+      <div class="fg"><label>ID Servidor</label><input type="text" id="es" name="id_servidor"></div>
       <button class="btn-sub" onclick="submitReport()">Enviar Reporte 🐛</button>
     </div>
-
-    <!-- Mensaje de éxito oculto -->
-    <div class="f-ok" id="rok" style="display:none;">
-      <div class="chk">✅</div>
-      <h3>¡Reporte recibido!</h3>
-      <p>Gracias por ayudarnos a mejorar Caatffee. Revisaremos tu reporte a la brevedad.<br>Si es urgente, únete a nuestro <a href="https://discord.gg/ESPYGjMqYK" target="_blank" style="color:var(--pink)">servidor de soporte</a>.</p>
-    </div>
+    <div class="f-ok" id="rok" style="display:none;"><div class="chk">✅</div><h3>¡Recibido!</h3></div>
   </div>
 </section>
 
@@ -1106,21 +1084,18 @@ function submitReport() {
     tipo: document.getElementById('et').value,
     comando: document.getElementById('ec').value,
     descripcion: document.getElementById('ed').value,
-    serverId: document.getElementById('es').value
+    server: document.getElementById('es').value
   };
-
-  if (!data.tipo || !data.descripcion) return alert("Por favor, selecciona el tipo de error y descríbelo.");
+  if (!data.descripcion) return alert("Describe el error");
 
   fetch("https://formspree.io", {
     method: "POST",
     body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   }).then(res => {
     if (res.ok) {
       document.getElementById('rf').style.display = 'none';
       document.getElementById('rok').style.display = 'block';
-    } else {
-      alert("Error al enviar el reporte.");
     }
   });
 }
@@ -1132,37 +1107,20 @@ function submitReport() {
   <span class="eyebrow">Hazlo tuyo</span>
   <h2 class="sec-t">💡 Sugerencias</h2>
   <div class="form-sec">
-    <!-- Formulario principal -->
     <div id="sf">
-      <div class="fg">
-        <label>Categoría de sugerencia</label>
+      <div class="fg"><label>Categoría</label>
         <select id="sc" name="categoria">
-          <option value="">— Selecciona una categoría —</option>
+          <option value="">— Selecciona —</option>
           <option>Nuevo comando</option>
-          <option>Mejora de función existente</option>
-          <option>Panel de administración</option>
-          <option>Sistema de donaciones</option>
-          <option>Diseño del bot</option>
+          <option>Mejora</option>
           <option>Otro</option>
         </select>
       </div>
-      <div class="fg">
-        <label>Tu sugerencia</label>
-        <textarea id="st2" name="sugerencia" rows="5" placeholder="Cuéntanos tu idea..."></textarea>
-      </div>
-      <div class="fg">
-        <label>¿Por qué sería útil?</label>
-        <textarea id="sw" name="utilidad" rows="3" placeholder="¿Qué problema resolvería?"></textarea>
-      </div>
+      <div class="fg"><label>Sugerencia</label><textarea id="st2" name="mensaje" rows="5"></textarea></div>
+      <div class="fg"><label>Utilidad</label><textarea id="sw" name="porque" rows="3"></textarea></div>
       <button class="btn-sub" onclick="submitSugg()">Enviar Sugerencia 💡</button>
     </div>
-
-    <!-- Mensaje de éxito oculto por defecto -->
-    <div class="f-ok" id="sok" style="display:none;">
-      <div class="chk">💡</div>
-      <h3>¡Sugerencia enviada!</h3>
-      <p>Gracias por tomarte el tiempo de sugerir mejoras.<br>Todas las ideas son revisadas por el equipo de Caatffee. ☕</p>
-    </div>
+    <div class="f-ok" id="sok" style="display:none;"><div class="chk">💡</div><h3>¡Enviada!</h3></div>
   </div>
 </section>
 
@@ -1170,27 +1128,24 @@ function submitReport() {
 function submitSugg() {
   const data = {
     categoria: document.getElementById('sc').value,
-    sugerencia: document.getElementById('st2').value,
-    utilidad: document.getElementById('sw').value
+    mensaje: document.getElementById('st2').value,
+    porque: document.getElementById('sw').value
   };
-
-  if (!data.categoria || !data.sugerencia) return alert("Por favor, completa los campos.");
-
+  if (!data.mensaje) return alert("Escribe tu sugerencia");
+  
   fetch("https://formspree.io", {
     method: "POST",
     body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   }).then(res => {
     if (res.ok) {
       document.getElementById('sf').style.display = 'none';
       document.getElementById('sok').style.display = 'block';
-    } else {
-      alert("Error al enviar. Inténtalo de nuevo.");
     }
   });
 }
 </script>
-
+   
 <!-- ═══ MIS SERVIDORES ═══ -->
 <section id="mis-servidores">
   <span class="eyebrow">Tu panel</span>
