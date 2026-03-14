@@ -1057,90 +1057,131 @@ footer{position:relative;z-index:2;border-top:1px solid var(--glass-border);padd
 
 
 <!-- SECCIÓN 1: SUGERENCIAS -->
-<section id="comments">
-  <div id="sf">
-    <div class="fg">
-      <label>Categoría</label>
-      <select id="sc"><option>Nuevo comando</option><option>Mejora</option><option>Otro</option></select>
+<section id="comments" style="max-width: 600px; margin: 20px auto; font-family: sans-serif;">
+  <span class="eyebrow" style="color: #d4a373; font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Hazlo tuyo</span>
+  <h2 class="sec-t" style="color: #6f4e37; margin-bottom: 20px;">💡 Sugerencias</h2>
+  
+  <div class="form-sec" style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 4px solid #6f4e37;">
+    <div id="sf">
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">¿Qué categoría es?</label>
+        <select id="sc" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+          <option value="">— Selecciona —</option>
+          <option>Nuevo comando 🛠️</option>
+          <option>Sistema de Economía 💰</option>
+          <option>Niveles y XP 🏆</option>
+          <option>Panel Web / Dashboard 💻</option>
+          <option>Moderación Automática 🛡️</option>
+          <option>Diseño / Estética ✨</option>
+          <option>Otro ✉️</option>
+        </select>
+      </div>
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tu sugerencia</label>
+        <textarea id="st2" rows="4" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;" placeholder="Cuéntanos tu idea..."></textarea>
+      </div>
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">¿Por qué sería útil?</label>
+        <textarea id="sw" rows="2" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;" placeholder="¿Qué problema resuelve?"></textarea>
+      </div>
+      <button class="btn-sub" onclick="enviarSugerencia()" style="background: #6f4e37; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold;">Enviar Sugerencia 💡</button>
     </div>
-    <div class="fg"><label>Sugerencia</label><textarea id="st2" rows="5"></textarea></div>
-    <div class="fg"><label>Utilidad</label><textarea id="sw" rows="3"></textarea></div>
-    <button class="btn-sub" onclick="enviarSugerencia()">Enviar Sugerencia 💡</button>
+
+    <div class="f-ok" id="sok" style="display:none; text-align: center; padding: 20px;">
+      <div style="font-size: 40px;">☕</div>
+      <h3 style="color: #6f4e37;">¡Sugerencia enviada!</h3>
+      <p>Gracias por tu idea para Caatffee.</p>
+    </div>
   </div>
-  <div id="sok" style="display:none;"><h3>¡Sugerencia enviada! ☕</h3></div>
 </section>
 
 <script>
 function enviarSugerencia() {
-  const btn = document.querySelector("#sf button");
-  const data = {
-    _subject: "NUEVA SUGERENCIA - Caatffee",
+  const btn = document.querySelector("#sf .btn-sub");
+  const payload = {
     categoria: document.getElementById('sc').value,
     sugerencia: document.getElementById('st2').value,
-    utilidad: document.getElementById('sw').value
+    utilidad: document.getElementById('sw').value,
+    _subject: "NUEVA SUGERENCIA - Caatffee"
   };
 
-  if(!data.sugerencia) return alert("Escribe tu sugerencia");
+  if(!payload.sugerencia) return alert("Escribe tu sugerencia");
   btn.innerText = "Enviando...";
 
   fetch("https://formspree.io/f/mojnyewl", {
     method: "POST",
-    body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    body: JSON.stringify(payload),
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   }).then(res => {
     if (res.ok) {
       document.getElementById('sf').style.display = 'none';
       document.getElementById('sok').style.display = 'block';
-    } else {
-      alert("Error: Revisa si el CAPTCHA está encendido en Formspree.");
-      btn.innerText = "Enviar Sugerencia 💡";
     }
-  }).catch(() => alert("Error de conexión. Prueba desactivando el AdBlock."));
+  }).catch(() => alert("Error de conexión"));
 }
 </script>
 
 <!-- SECCIÓN 2: REPORTES -->
-<section id="report">
-  <div id="rf">
-    <div class="fg">
-      <label>Tipo de error</label>
-      <select id="et"><option>Bot no responde</option><option>Error comando</option><option>Otro</option></select>
+<section id="report" style="max-width: 600px; margin: 20px auto; font-family: sans-serif;">
+  <span class="eyebrow" style="color: #e74c3c; font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">¿Algo falló?</span>
+  <h2 class="sec-t" style="color: #c0392b; margin-bottom: 20px;">🐛 Reportar Error</h2>
+  
+  <div class="form-sec" style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 4px solid #e74c3c;">
+    <div id="rf">
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de error</label>
+        <select id="et" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+          <option value="">— Selecciona —</option>
+          <option>Comando no responde 🔇</option>
+          <option>Error en el Panel Web 💻</option>
+          <option>Fallo en Bienvenidas/Despedidas 🚪</option>
+          <option>Error de Permisos 🚫</option>
+          <option>Error Visual / Texto 📝</option>
+          <option>Otro ❓</option>
+        </select>
+      </div>
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Comando afectado</label>
+        <input type="text" id="ec" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;" placeholder="Ej: /ban">
+      </div>
+      <div class="fg" style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 5px; font-weight: bold;">Descripción</label>
+        <textarea id="ed" rows="4" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;" placeholder="¿Qué pasó exactamente?"></textarea>
+      </div>
+      <button class="btn-sub" onclick="enviarReporte()" style="background: #e74c3c; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold;">Enviar Reporte 🐛</button>
     </div>
-    <div class="fg"><label>Comando</label><input type="text" id="ec"></div>
-    <div class="fg"><label>Descripción</label><textarea id="ed" rows="5"></textarea></div>
-    <div class="fg"><label>ID Servidor</label><input type="text" id="es"></div>
-    <button class="btn-sub" onclick="enviarReporte()">Enviar Reporte 🐛</button>
+
+    <div class="f-ok" id="rok" style="display:none; text-align: center; padding: 20px;">
+      <div style="font-size: 40px;">✅</div>
+      <h3 style="color: #e74c3c;">¡Reporte recibido!</h3>
+      <p>Lo revisaremos lo antes posible.</p>
+    </div>
   </div>
-  <div id="rok" style="display:none;"><h3>¡Reporte recibido! ✅</h3></div>
 </section>
 
 <script>
 function enviarReporte() {
-  const btn = document.querySelector("#rf button");
-  const data = {
-    _subject: "REPORTE DE ERROR - Caatffee",
+  const btn = document.querySelector("#rf .btn-sub");
+  const payload = {
     tipo: document.getElementById('et').value,
     comando: document.getElementById('ec').value,
-    descripcion: document.getElementById('ed').value,
-    server: document.getElementById('es').value
+    detalles: document.getElementById('ed').value,
+    _subject: "REPORTE DE ERROR - Caatffee"
   };
 
-  if(!data.descripcion) return alert("Describe el error");
+  if(!payload.detalles) return alert("Describe el error");
   btn.innerText = "Enviando...";
 
   fetch("https://formspree.io/f/mojnyewl", {
     method: "POST",
-    body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    body: JSON.stringify(payload),
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   }).then(res => {
     if (res.ok) {
       document.getElementById('rf').style.display = 'none';
       document.getElementById('rok').style.display = 'block';
-    } else {
-      alert("Error al enviar el reporte.");
-      btn.innerText = "Enviar Reporte 🐛";
     }
-  }).catch(() => alert("Error de conexión. Intenta desde una pestaña de incógnito."));
+  }).catch(() => alert("Error de conexión"));
 }
 </script>
    
