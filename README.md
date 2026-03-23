@@ -30,6 +30,6 @@ Mantén la estética de tu servidor profesional mientras tú mueves los hilos de
 ### 💎 Beneficios Premium
 • **Patreon:** Los aportes en Patreon son consideradas donaciones para el crecimiento y mantenimiento del bot sin embargo los usuarios que donen obtendran beneficios como muestra de agadecimiento.
 Apóyanos y obtén funciones exclusivas:
-• [**Conlsulta los planes en**](https://caatffee.com/es/commands)
+• [**Ver planes de donación**](https://caatffee.com/es/commands)
 
 </div>
