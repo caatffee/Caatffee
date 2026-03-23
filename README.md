@@ -23,7 +23,7 @@ Mantén la estética de tu servidor profesional mientras tú mueves los hilos de
 • [**Invitar al Bot**](https://discord.com/oauth2/authorize?client_id=1475842620063485993&permissions=8&scope=bot)
 • [**Servidor de Soporte**](https://discord.gg/ecjgjx7yPd)
 • [**Web Oficial**](https://caatffee.com)
-• [**Correo de Soporte**](support@caatffee.com)
+• [**Correo de Soporte**] support@caatffee.com
 
 ---
 
