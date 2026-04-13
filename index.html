@@ -4,43 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caatffee Bot | Economía de Cartas ☕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Caatffee Bot</h1>
-        <p class="subtitle">El sistema de economía de cartas más dulce de Discord. Colecciona, intercambia y lucha con tus amigos.</p>
-        
-        <div class="btn-container">
-            <a href="#" class="btn btn-primary">Añadir Bot 🐾</a>
-            <a href="#" class="btn btn-secondary">Comunidad ☕</a>
+    <!-- ruido decorativo de fondo -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- ══════════ HERO ══════════ -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="assets/img/logo.png" alt="Caatffee logo" class="nav-logo-img" onerror="this.style.display='none'">
+                <span>Caatffee <span class="logo-accent">☕</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Características</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#">Docs</a></li>
+            </ul>
+            <a href="#" class="btn btn-nav">Añadir Bot 🐾</a>
+        </nav>
+
+        <div class="hero-body">
+            <div class="hero-content">
+                <span class="badge">✨ Bot de Discord · Economía de cartas</span>
+                <h1 class="hero-title">
+                    El sabor del<br>
+                    <em>coleccionismo</em><br>
+                    en Discord.
+                </h1>
+                <p class="hero-sub">
+                    Colecciona cartas únicas, desafía rivales y construye el mazo más poderoso. Un sistema de economía envolvente para amantes del café y los gatos.
+                </p>
+                <div class="btn-container">
+                    <a href="#" class="btn btn-primary">Añadir a mi servidor 🐾</a>
+                    <a href="#" class="btn btn-secondary">Comunidad ☕</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card-frame">
+                    <img src="assets/img/bot-avatar.png" alt="Caatffee Bot" class="hero-bot-img" onerror="this.style.display='none'">
+                    <div class="hero-blob" aria-hidden="true"></div>
+                    <span class="deco-card deco-1">🎴</span>
+                    <span class="deco-card deco-2">⚔️</span>
+                    <span class="deco-card deco-3">☕</span>
+                    <span class="deco-card deco-4">🏆</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-value">12K+</span>
+                <span class="stat-label">Usuarios activos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">340+</span>
+                <span class="stat-label">Cartas únicas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-value">98K</span>
+                <span class="stat-label">Batallas jugadas</span>
+            </div>
         </div>
     </header>
 
-    <section class="features">
-        <div class="card">
-            <div class="icon">🎴</div>
-            <h3>Coleccionables</h3>
-            <p>Cartas únicas con rarezas desde Común hasta Mística.</p>
-        </div>
-        <div class="card">
-            <div class="icon">⚔️</div>
-            <h3>Batallas</h3>
-            <p>Desafía a otros usuarios y sube en el ranking global.</p>
-        </div>
-        <div class="card">
-            <h3>🤝 Trade</h3>
-            <p>Sistema seguro de intercambios para completar tu mazo.</p>
+    <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,35 C360,80 1080,0 1440,45 L1440,70 L0,70 Z" fill="#fff8f5"/>
+        </svg>
+    </div>
+
+    <!-- ══════════ FEATURES ══════════ -->
+    <section class="features-section" id="features">
+        <p class="section-label">¿Por qué Caatffee?</p>
+        <h2 class="section-title">Todo lo que necesitas para <em>dominar</em> el mazo.</h2>
+
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-icon">🎴</span>
+                <h3>Coleccionables</h3>
+                <p>Cartas únicas con rarezas desde Común hasta Mística. Cada apertura es una sorpresa.</p>
+                <span class="card-tag">+ 340 cartas únicas</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚔️</span>
+                <h3>Batallas PvP</h3>
+                <p>Desafía a otros usuarios en tiempo real y asciende en el ranking global de servidores.</p>
+                <span class="card-tag">Ranking en vivo</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🤝</span>
+                <h3>Sistema de Trade</h3>
+                <p>Intercambia cartas de forma segura con otros jugadores para completar tu colección.</p>
+                <span class="card-tag">Intercambios protegidos</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">☕</span>
+                <h3>Economía Café</h3>
+                <p>Gana "granos" diarios, completa misiones y desbloquea sobres especiales de temporada.</p>
+                <span class="card-tag">Temporadas mensuales</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🏆</span>
+                <h3>Torneos</h3>
+                <p>Participa en torneos comunitarios con premios exclusivos y cartas de edición limitada.</p>
+                <span class="card-tag">Premios exclusivos</span>
+            </div>
+            <div class="card">
+                <span class="card-icon">🐱</span>
+                <h3>Mascota Caatffee</h3>
+                <p>Cuida a tu gato barista personal. Sube su nivel y desbloquea habilidades de combate.</p>
+                <span class="card-tag">Próximamente</span>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Caatffee Bot. Diseñado para amantes del café y los gatos.</p>
+    <!-- ══════════ GALLERY ══════════ -->
+    <section class="gallery-section" id="galeria">
+        <p class="section-label">Vista previa</p>
+        <h2 class="section-title">Las cartas más <em>codiciadas</em>.</h2>
+
+        <div class="gallery-grid">
+            <div class="gallery-card rarity-mythic">
+                <div class="gallery-img-wrap">
+                    <img src="assets/img/cards/card-mythic.png" alt="Carta Mística" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-card-info">
+                    <span class="rarity-badge">✨ Mítica</span>
+                    <p>Gato Barista Dorado</p>
+                </div>
+            </div>
+            <div class="gallery-card rarity-rare">
+                <div class="gallery-img-wrap">
+                    <img src="assets/img/cards/card-rare.png" alt="Carta Rara" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-card-info">
+                    <span class="rarity-badge">💎 Rara</span>
+                    <p>Espresso del Destino</p>
+                </div>
+            </div>
+            <div class="gallery-card rarity-uncommon">
+                <div class="gallery-img-wrap">
+                    <img src="assets/img/cards/card-uncommon.png" alt="Poco Común" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-card-info">
+                    <span class="rarity-badge">🌸 Poco Común</span>
+                    <p>Capuchino Rosa</p>
+                </div>
+            </div>
+            <div class="gallery-card rarity-common">
+                <div class="gallery-img-wrap">
+                    <img src="assets/img/cards/card-common.png" alt="Común" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-card-info">
+                    <span class="rarity-badge">☕ Común</span>
+                    <p>Gatito Café</p>
+                </div>
+            </div>
+        </div>
+        <p class="gallery-note">Coloca tus imágenes en <code>assets/img/cards/</code> para mostrarlas aquí.</p>
+    </section>
+
+    <!-- ══════════ CTA ══════════ -->
+    <section class="cta-band" id="comunidad">
+        <div class="cta-inner">
+            <h2>¿Lista para tu primera taza de batallas?</h2>
+            <p>Miles de coleccionistas ya están jugando. Únete hoy y consigue tu sobre de bienvenida gratuito.</p>
+            <a href="#" class="btn btn-primary">Añadir Caatffee Bot →</a>
+        </div>
+        <div class="cta-deco" aria-hidden="true">☕🐱🎴⚔️🏆</div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <img src="assets/img/logo.png" alt="Caatffee logo" class="footer-logo-img" onerror="this.style.display='none'">
+            <span class="footer-logo-name">Caatffee ☕</span>
+            <p class="footer-tagline">Para amantes del café y los gatos.</p>
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Términos</a></li>
+            <li><a href="#">Privacidad</a></li>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">GitHub</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 Caatffee Bot. Todos los derechos reservados.</p>
     </footer>
-    <script src="https://unpkg.com" crossorigin="anonymous"></script>
-    <script>
-        twemoji.parse(document.body);
-    </script>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
