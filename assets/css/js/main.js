@@ -1,0 +1,1 @@
+const notes=document.getElementById('notes');if(notes){notes.value=localStorage.getItem('caatffee-notes')||'';notes.addEventListener('input',()=>localStorage.setItem('caatffee-notes',notes.value));}
